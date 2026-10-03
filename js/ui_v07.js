@@ -28,13 +28,20 @@
   const legendModalClose = $('legendModalClose');
   const sessionType = $('sessionMarkerType');
   const sessionNote = $('sessionMarkerNote');
+  const newSessionMarkerBtn = $('newSessionMarkerBtn');
   const applySessionMarkerBtn = $('applySessionMarkerBtn');
+  const updateSessionMarkerBtn = $('updateSessionMarkerBtn');
   const clearSessionMarkersBtn = $('clearSessionMarkersBtn');
+  const sessionPlacementHint = $('sessionPlacementHint');
+  const sessionMarksList = $('sessionMarksList');
   const searchInput = $('searchInput');
   const searchResults = $('searchResults');
 
   const sessionLayer = L.layerGroup().addTo(app.map);
   const sessionMarks = new Map();
+  let sessionMarkCounter = 0;
+  let placingSessionMark = false;
+  let editingSessionMarkId = null;
 
   const ESC = value => String(value ?? '').replace(/[&<>'"]/g, char => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
@@ -122,12 +129,17 @@
   document.addEventListener('valkaria:zoom', event => updateZoomUI(event.detail));
   updateZoomUI();
 
+  function marksForFeature(featureId) {
+    return [...sessionMarks.values()].filter(mark => mark.featureId === featureId);
+  }
+
   function appendSessionNote(feature) {
-    const mark = sessionMarks.get(feature.id);
-    if (!mark) return;
-    const def = sessionDefs[mark.type];
-    details.querySelector('.session-note')?.remove();
-    details.insertAdjacentHTML('beforeend', `<div class="session-note"><strong>${ESC(def.glyph)} ${ESC(def.label)}</strong>${mark.note ? `<br>${ESC(mark.note)}` : ''}</div>`);
+    const marks = marksForFeature(feature.id);
+    details.querySelectorAll('.session-note').forEach(node => node.remove());
+    marks.forEach(mark => {
+      const def = sessionDefs[mark.type];
+      details.insertAdjacentHTML('beforeend', `<div class="session-note"><strong>${ESC(def.glyph)} ${ESC(def.label)}</strong>${mark.note ? `<br>${ESC(mark.note)}` : ''}</div>`);
+    });
   }
 
   function markerPosition(feature, layer) {
@@ -139,45 +151,176 @@
   function makeSessionIcon(mark) {
     const def = sessionDefs[mark.type];
     return L.divIcon({
-      className: 'poi-div-icon',
-      html: `<div class="poi-wrap"><span class="session-mark">${ESC(def.glyph)}</span></div>`,
-      iconSize: [24, 24], iconAnchor: [12, 12]
+      className: 'session-div-icon',
+      html: `<div class="session-pin session-${ESC(mark.type)}"><span>${ESC(def.glyph)}</span></div>`,
+      iconSize: [32, 38],
+      iconAnchor: [16, 34]
     });
   }
 
-  function renderSessionMark(feature, layer, type, note) {
-    const position = markerPosition(feature, layer);
-    if (!position) return;
-    const existing = sessionMarks.get(feature.id);
-    if (existing?.marker) sessionLayer.removeLayer(existing.marker);
+  function sessionLabel(mark) {
+    const def = sessionDefs[mark.type];
+    return mark.note || (mark.featureId
+      ? (app.features.find(feature => feature.id === mark.featureId)?.nome || def.label)
+      : def.label);
+  }
 
-    const mark = { type, note: note.trim(), marker: null };
-    const marker = L.marker(position, { icon: makeSessionIcon(mark), interactive: true, zIndexOffset: 1000 });
-    const def = sessionDefs[type];
-    marker.bindTooltip(`${def.glyph} ${def.label}${mark.note ? `<br>${ESC(mark.note)}` : ''}`, { className: 'map-label', direction: 'top' });
-    marker.on('click', () => {
-      const record = app.featureLayers.get(feature.id);
-      app.selectFeature(feature, record?.layer || layer, false);
+  function setPlacementMode(active) {
+    placingSessionMark = active;
+    sessionPlacementHint.hidden = !active;
+    newSessionMarkerBtn?.setAttribute('aria-pressed', String(active));
+    if (newSessionMarkerBtn) newSessionMarkerBtn.textContent = active ? 'Cancelar posicionamento' : '+ Nova marca';
+    document.body.classList.toggle('placing-session-mark', active);
+  }
+
+  function clearSessionEditor() {
+    editingSessionMarkId = null;
+    if (updateSessionMarkerBtn) updateSessionMarkerBtn.disabled = true;
+  }
+
+  function loadSessionEditor(mark) {
+    editingSessionMarkId = mark.id;
+    sessionType.value = mark.type;
+    sessionNote.value = mark.note || '';
+    if (updateSessionMarkerBtn) updateSessionMarkerBtn.disabled = false;
+  }
+
+  function refreshSessionList() {
+    if (!sessionMarksList) return;
+    const marks = [...sessionMarks.values()];
+    if (!marks.length) {
+      sessionMarksList.innerHTML = '<p class="muted">Nenhuma marca ativa.</p>';
+      return;
+    }
+    sessionMarksList.innerHTML = marks.map(mark => {
+      const def = sessionDefs[mark.type];
+      return `<div class="session-list-item${editingSessionMarkId === mark.id ? ' is-editing' : ''}" data-session-id="${ESC(mark.id)}">
+        <button class="session-focus" type="button" title="Centralizar no mapa">
+          <span class="session-list-glyph">${ESC(def.glyph)}</span>
+          <span><strong>${ESC(sessionLabel(mark))}</strong><small>${ESC(def.label)}</small></span>
+        </button>
+        <button class="session-edit" type="button" title="Editar">✎</button>
+        <button class="session-delete" type="button" title="Excluir">×</button>
+      </div>`;
+    }).join('');
+
+    sessionMarksList.querySelectorAll('.session-list-item').forEach(row => {
+      const mark = sessionMarks.get(row.dataset.sessionId);
+      if (!mark) return;
+      row.querySelector('.session-focus')?.addEventListener('click', () => {
+        app.map.flyTo(mark.marker.getLatLng(), Math.max(app.map.getZoom(), 0.45), { duration: .35 });
+      });
+      row.querySelector('.session-edit')?.addEventListener('click', () => {
+        loadSessionEditor(mark);
+        refreshSessionList();
+      });
+      row.querySelector('.session-delete')?.addEventListener('click', () => {
+        sessionLayer.removeLayer(mark.marker);
+        sessionMarks.delete(mark.id);
+        if (editingSessionMarkId === mark.id) clearSessionEditor();
+        refreshSessionList();
+        if (app.selectedFeature) {
+          details.innerHTML = app.featureHtml(app.selectedFeature);
+          appendSessionNote(app.selectedFeature);
+        }
+      });
     });
+  }
+
+  function createSessionMark(position, type, note, featureId = null) {
+    if (!position) return null;
+    const id = `session-${Date.now()}-${++sessionMarkCounter}`;
+    const mark = {
+      id,
+      type,
+      note: String(note || '').trim(),
+      featureId,
+      marker: null
+    };
+
+    const marker = L.marker(position, {
+      icon: makeSessionIcon(mark),
+      interactive: true,
+      draggable: true,
+      zIndexOffset: 1300,
+      riseOnHover: true
+    });
+
+    const syncTooltip = () => {
+      const def = sessionDefs[mark.type];
+      marker.unbindTooltip();
+      marker.bindTooltip(`${def.glyph} ${ESC(def.label)}${mark.note ? `<br>${ESC(mark.note)}` : ''}`, {
+        className: 'map-label',
+        direction: 'top'
+      });
+    };
+
+    syncTooltip();
+
+    marker.on('click', event => {
+      L.DomEvent.stopPropagation(event);
+      loadSessionEditor(mark);
+      refreshSessionList();
+      openTools();
+    });
+
+    marker.on('dragend', () => {
+      mark.featureId = null;
+      refreshSessionList();
+    });
+
     marker.addTo(sessionLayer);
     mark.marker = marker;
-    sessionMarks.set(feature.id, mark);
-    appendSessionNote(feature);
+    mark.syncTooltip = syncTooltip;
+    sessionMarks.set(id, mark);
+    refreshSessionList();
+
+    if (featureId && app.selectedFeature?.id === featureId) appendSessionNote(app.selectedFeature);
+    return mark;
   }
+
+  newSessionMarkerBtn?.addEventListener('click', () => {
+    clearSessionEditor();
+    setPlacementMode(!placingSessionMark);
+  });
+
+  app.map.on('click', event => {
+    if (!placingSessionMark) return;
+    createSessionMark(event.latlng, sessionType.value, sessionNote.value, null);
+    sessionNote.value = '';
+    setPlacementMode(false);
+  });
 
   applySessionMarkerBtn?.addEventListener('click', () => {
     const feature = app.selectedFeature;
     if (!feature) return;
-    renderSessionMark(feature, app.selectedLayer, sessionType.value, sessionNote.value);
+    const position = markerPosition(feature, app.selectedLayer);
+    if (!position) return;
+    createSessionMark(position, sessionType.value, sessionNote.value, feature.id);
     sessionNote.value = '';
+  });
+
+  updateSessionMarkerBtn?.addEventListener('click', () => {
+    const mark = sessionMarks.get(editingSessionMarkId);
+    if (!mark) return;
+    mark.type = sessionType.value;
+    mark.note = sessionNote.value.trim();
+    mark.marker.setIcon(makeSessionIcon(mark));
+    mark.syncTooltip?.();
+    refreshSessionList();
+    if (mark.featureId && app.selectedFeature?.id === mark.featureId) {
+      details.innerHTML = app.featureHtml(app.selectedFeature);
+      appendSessionNote(app.selectedFeature);
+    }
   });
 
   clearSessionMarkersBtn?.addEventListener('click', () => {
     sessionLayer.clearLayers();
     sessionMarks.clear();
-    if (app.selectedFeature) {
-      details.innerHTML = app.featureHtml(app.selectedFeature);
-    }
+    clearSessionEditor();
+    setPlacementMode(false);
+    refreshSessionList();
+    if (app.selectedFeature) details.innerHTML = app.featureHtml(app.selectedFeature);
   });
 
   document.addEventListener('valkaria:select', event => {
@@ -251,6 +394,9 @@
     app.clearSelection();
     sessionLayer.clearLayers();
     sessionMarks.clear();
+    clearSessionEditor();
+    setPlacementMode(false);
+    refreshSessionList();
     searchInput.value = '';
     searchResults.innerHTML = '';
     searchResults.classList.remove('has-results');
