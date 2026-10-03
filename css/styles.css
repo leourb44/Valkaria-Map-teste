@@ -916,3 +916,334 @@ body.placing-session-mark .map-wrap::before {
     text-align: center;
   }
 }
+
+
+/* ==========================================================
+   v0.9.3-dev — Polimento visual do livro e da interface
+   ========================================================== */
+
+.atlas-intro {
+  background-position: center 42%;
+}
+.atlas-intro::before {
+  opacity: .26;
+  background-image:
+    linear-gradient(102deg, rgba(255,219,157,.075), transparent 26%),
+    repeating-linear-gradient(6deg, transparent 0 19px, rgba(255,255,255,.018) 20px 21px),
+    repeating-linear-gradient(96deg, transparent 0 33px, rgba(0,0,0,.05) 34px 35px);
+}
+.book-stage {
+  transform: translateY(1.5vh);
+  filter:
+    drop-shadow(0 22px 14px rgba(0,0,0,.24))
+    drop-shadow(0 42px 38px rgba(0,0,0,.36));
+}
+.book {
+  width: min(540px, 74vw);
+  border-color: rgba(36,20,12,.92);
+  border-radius: 11px 23px 23px 11px;
+  transform: rotateX(2.4deg) rotateY(-5.5deg) rotateZ(-1.2deg);
+  box-shadow:
+    0 34px 58px rgba(0,0,0,.48),
+    13px 10px 0 -4px #c9b88f,
+    17px 14px 0 -5px #907d5d,
+    inset 0 0 0 3px rgba(18,10,6,.66),
+    inset 0 0 0 7px rgba(177,127,63,.18),
+    inset 20px 0 28px rgba(0,0,0,.34),
+    inset -10px 0 18px rgba(0,0,0,.16);
+}
+.book:hover {
+  transform: translateY(-6px) rotateX(1.4deg) rotateY(-3.8deg) rotateZ(-.7deg);
+}
+.book-page-block {
+  position: absolute;
+  z-index: -3;
+  left: 5%;
+  right: -18px;
+  top: 13px;
+  bottom: -19px;
+  border-radius: 7px 21px 21px 7px;
+  background:
+    linear-gradient(90deg, rgba(86,66,40,.18), transparent 13%),
+    repeating-linear-gradient(0deg,
+      #d5c49e 0 2px,
+      #b7a37e 2px 3px,
+      #e4d4b1 3px 5px,
+      #c8b68f 5px 6px);
+  border: 1px solid #6f5a3d;
+  box-shadow:
+    8px 11px 20px rgba(0,0,0,.32),
+    inset -8px 0 10px rgba(83,60,34,.12);
+}
+.book-pages {
+  right: -14px;
+  top: 5%;
+  bottom: 4.5%;
+  width: 23px;
+  opacity: .96;
+}
+.cover-frame {
+  position: absolute;
+  inset: 4.5% 5% 4.7% 7%;
+  border: 1px solid rgba(201,158,82,.46);
+  border-radius: 5px 14px 14px 5px;
+  box-shadow:
+    inset 0 0 0 2px rgba(24,13,8,.6),
+    inset 0 0 0 5px rgba(137,91,45,.08),
+    0 0 0 1px rgba(19,10,6,.48);
+  pointer-events: none;
+}
+.book-spine {
+  inset: 2.2% auto 2.2% 2.8%;
+  width: 10.5%;
+  overflow: visible;
+  border-radius: 58% 22% 22% 58%;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,.58),
+      rgba(95,57,30,.7) 24%,
+      rgba(168,112,57,.16) 54%,
+      rgba(0,0,0,.3));
+  box-shadow:
+    inset -2px 0 0 rgba(193,143,78,.16),
+    3px 0 8px rgba(0,0,0,.22);
+}
+.spine-band {
+  position: absolute;
+  left: -10%;
+  right: -7%;
+  height: 4.8%;
+  border-radius: 45%;
+  background:
+    linear-gradient(180deg,
+      rgba(209,158,84,.18),
+      rgba(35,17,9,.55) 42%,
+      rgba(181,124,63,.12));
+  border-top: 1px solid rgba(199,143,70,.26);
+  border-bottom: 1px solid rgba(13,7,4,.6);
+  box-shadow: 0 2px 3px rgba(0,0,0,.28);
+}
+.band-a { top: 18%; }
+.band-b { top: 48%; }
+.band-c { top: 76%; }
+
+.book-corner {
+  width: 68px;
+  height: 68px;
+  opacity: .83;
+  filter:
+    drop-shadow(0 1px 0 rgba(255,217,137,.09))
+    drop-shadow(0 2px 2px rgba(0,0,0,.5));
+}
+.corner-tl { left: 4.4%; top: 3.8%; }
+.corner-tr { right: 3.9%; top: 3.8%; }
+.corner-bl { left: 4.4%; bottom: 3.8%; }
+.corner-br { right: 3.9%; bottom: 3.8%; }
+
+.cover-sigil {
+  width: 104px;
+  height: 104px;
+  margin-top: 4%;
+  margin-bottom: 7%;
+  border-color: rgba(190,143,72,.84);
+  outline-color: rgba(28,14,8,.86);
+  background:
+    radial-gradient(circle at 43% 34%, rgba(229,190,114,.09), transparent 27%),
+    radial-gradient(circle, rgba(126,82,37,.2), rgba(15,8,5,.3));
+  box-shadow:
+    inset 0 0 0 2px rgba(26,14,8,.54),
+    inset 0 0 18px rgba(0,0,0,.42),
+    0 1px 0 rgba(237,202,130,.12);
+}
+.cover-sigil span {
+  filter: drop-shadow(0 2px 1px rgba(0,0,0,.75));
+}
+.campaign-mark {
+  opacity: .7;
+  letter-spacing: .24em;
+}
+.cover-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 6.1vw, 4.15rem);
+  letter-spacing: .085em;
+  text-shadow:
+    0 2px 0 #170c07,
+    0 -1px 0 rgba(231,198,130,.18),
+    1px 1px 4px rgba(0,0,0,.72);
+}
+.cover-subtitle {
+  letter-spacing: .14em;
+  opacity: .9;
+}
+.book-clasp {
+  position: absolute;
+  right: -12px;
+  top: 48%;
+  width: 38px;
+  height: 72px;
+  transform: translateY(-50%);
+  border-radius: 7px 10px 10px 7px;
+  background:
+    linear-gradient(90deg,
+      #5e4327,
+      #b3884b 24%,
+      #6a4a28 55%,
+      #2d1d11);
+  border: 1px solid #24150c;
+  box-shadow:
+    3px 4px 7px rgba(0,0,0,.4),
+    inset 0 0 0 2px rgba(216,175,98,.12);
+}
+.book-clasp::before {
+  content: '';
+  position: absolute;
+  left: -13px;
+  top: 11px;
+  bottom: 11px;
+  width: 15px;
+  border-radius: 5px 0 0 5px;
+  background: linear-gradient(90deg, #2d1a0e, #75502d);
+  border: 1px solid #21120a;
+}
+.book-clasp span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  background: radial-gradient(circle at 35% 30%, #caa25b, #614321 62%, #25170c);
+  border: 1px solid #27170c;
+  box-shadow: 0 1px 2px rgba(0,0,0,.55);
+}
+.open-atlas-label {
+  bottom: 5.4%;
+  border-radius: 4px;
+  min-width: 150px;
+  background:
+    linear-gradient(#5c341e,#2b180e);
+  border: 1px solid #aa8246;
+  box-shadow:
+    inset 0 0 0 1px rgba(231,191,113,.12),
+    0 2px 6px rgba(0,0,0,.46);
+}
+.open-atlas-label::before,
+.open-atlas-label::after {
+  content: '◆';
+  margin: 0 .42rem;
+  font-size: .52rem;
+  opacity: .62;
+}
+
+/* Painel do cartógrafo com hierarquia de livro/índice. */
+.tools-panel {
+  border-right: 1px solid rgba(58,41,27,.42);
+  box-shadow: 12px 0 32px rgba(40,28,18,.16);
+}
+.drawer-header {
+  background:
+    linear-gradient(180deg, rgba(74,48,31,.96), rgba(51,34,23,.98));
+  color: #dfc58c;
+  border-bottom-color: rgba(183,139,73,.44);
+}
+.drawer-header small {
+  color: rgba(223,197,140,.66);
+}
+.drawer-header h2 {
+  color: #ead4a2;
+  letter-spacing: .035em;
+}
+.drawer-header .icon-button {
+  color: #e7cf9d;
+  border-color: rgba(198,153,82,.38);
+  background: rgba(20,12,7,.18);
+}
+.tool-section {
+  margin: 0 -2px;
+  border-bottom-color: rgba(85,63,40,.23);
+}
+.tool-section-toggle {
+  padding: 11px 8px;
+  color: #4e3d2d;
+  letter-spacing: .015em;
+}
+.tool-section-toggle[aria-expanded="true"] {
+  color: #2f241b;
+  background: linear-gradient(90deg, rgba(168,127,67,.09), transparent 76%);
+  box-shadow: inset 3px 0 0 rgba(160,117,58,.5);
+}
+.tool-section-toggle::after {
+  font-size: .83rem;
+}
+.tool-section-body {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.tool-section-body h3 {
+  margin-top: .9rem;
+  padding-bottom: .23rem;
+  border-bottom: 1px dotted rgba(95,70,43,.26);
+  color: #695039;
+  font-size: .74rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.tier-actions button,
+.tool-actions button,
+.wide-button {
+  background:
+    linear-gradient(180deg, rgba(248,239,218,.9), rgba(226,210,177,.78));
+  box-shadow: inset 0 1px rgba(255,255,255,.35);
+}
+.layer-toggle,
+.status-filter {
+  padding: .1rem 0;
+}
+select,
+textarea,
+input[type="search"] {
+  background-color: rgba(250,242,222,.72);
+}
+.session-marks-list {
+  background: rgba(111,80,45,.035);
+  border-radius: 5px;
+  padding: .45rem;
+}
+
+/* Busca e plaqueta com menos aparência de painel moderno. */
+.map-search {
+  border-radius: 4px;
+  border-color: rgba(72,52,34,.45);
+  box-shadow: 0 7px 18px rgba(41,28,18,.15);
+}
+.title-plaque {
+  border-radius: 2px 2px 10px 10px;
+  border-top: 0;
+  box-shadow:
+    0 5px 14px rgba(40,28,18,.12),
+    inset 0 1px rgba(255,255,255,.3);
+}
+.tools-tab {
+  background:
+    linear-gradient(90deg,#2d1d13,#4a3120 52%,#382417);
+  border-color: rgba(157,112,57,.52);
+  box-shadow:
+    5px 8px 18px rgba(35,24,15,.24),
+    inset -1px 0 rgba(197,148,76,.16);
+}
+
+@media (max-width: 760px) {
+  .book {
+    width: min(88vw, 450px);
+  }
+  .book-clasp {
+    right: -8px;
+    width: 30px;
+    height: 58px;
+  }
+  .cover-sigil {
+    width: 82px;
+    height: 82px;
+  }
+}
