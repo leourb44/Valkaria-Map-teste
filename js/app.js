@@ -74,6 +74,7 @@
   const tierMainBtn = document.getElementById('tierMainBtn');
   const territoryBoundaryMode = document.getElementById('territoryBoundaryMode');
   const territoryLabelsToggle = document.getElementById('territoryLabelsToggle');
+  const overlayBoundaryMode = document.getElementById('overlayBoundaryMode');
   const homeBtn = document.getElementById('homeBtn');
   const coordsBtn = document.getElementById('coordsBtn');
   const gmBtn = document.getElementById('gmBtn');
@@ -113,6 +114,7 @@
   const enabledTiers = new Set(Object.keys(tierDefs));
   let territoryBoundaryVisibility = territoryBoundaryMode?.value || 'hover';
   let territoryLabelsVisible = territoryLabelsToggle?.checked !== false;
+  let overlayBoundaryVisibility = overlayBoundaryMode?.value || 'discrete';
 
   let editingFeature = null;
   let previewLayer = null;
@@ -501,6 +503,13 @@
       };
     }
 
+    const informationalAreaLayers = new Set([
+      'instituicoes','economia','infraestrutura','religiao','educacao',
+      'saude','magia','funerario','seguranca','campanha','faccoes','gm'
+    ]);
+    const informationalArea = informationalAreaLayers.has(feature.camada)
+      && (geometry === 'polygon' || geometry === 'reserve');
+
     // Eixos editoriais: relações funcionais, não ruas literais.
     if (feature.camada === 'estrutura_funcional') {
       style.fillOpacity = 0;
@@ -577,6 +586,17 @@
       style.fillColor = polygonPalette[feature.camada].fillColor;
     }
 
+    if (informationalArea) {
+      if (overlayBoundaryVisibility === 'hidden' || overlayBoundaryVisibility === 'hover') {
+        style.opacity = 0;
+        style.fillOpacity = 0.001;
+      } else {
+        style.opacity = Math.min(style.opacity ?? 0.5, 0.34);
+        style.fillOpacity = Math.min(style.fillOpacity ?? 0.04, 0.018);
+        style.weight = Math.min(style.weight ?? 1.5, 1.25);
+      }
+    }
+
     if (geometry === 'corridor') {
       style.fillOpacity = 0;
       style.lineCap = 'round';
@@ -599,6 +619,31 @@
         if (territoryBoundaryVisibility === 'hidden') return;
         const base = styleFor(feature);
         layer.setStyle({ ...base, color: territoryTone(feature), opacity: 0.72, fillOpacity: 0.075, weight: Math.max(base.weight || 1.5, 1.8) + 0.45 });
+      });
+      layer.on('mouseout', () => {
+        if (selectedFeature?.id === feature.id) return;
+        layer.setStyle(styleFor(feature));
+      });
+    }
+
+    const informationalAreaLayers = new Set([
+      'instituicoes','economia','infraestrutura','religiao','educacao',
+      'saude','magia','funerario','seguranca','campanha','faccoes','gm'
+    ]);
+    const informationalArea = informationalAreaLayers.has(feature.camada)
+      && ['polygon','reserve'].includes(feature.geometria);
+
+    if (informationalArea && layer.setStyle) {
+      layer.on('mouseover', () => {
+        if (selectedFeature?.id === feature.id) return;
+        if (overlayBoundaryVisibility !== 'hover') return;
+        const base = styleFor(feature);
+        layer.setStyle({
+          ...base,
+          opacity: 0.68,
+          fillOpacity: 0.055,
+          weight: Math.max(base.weight || 1.3, 1.7)
+        });
       });
       layer.on('mouseout', () => {
         if (selectedFeature?.id === feature.id) return;
@@ -745,13 +790,16 @@
   function syncGroupsToMap() {
     Object.entries(layerDefs).forEach(([key, def]) => {
       const input = document.querySelector(`[data-layer="${key}"]`);
-      const shouldShow = input?.checked && (!def.gmOnly || gmMode);
+      const shouldShow = key === 'territorios'
+        ? true
+        : Boolean(input?.checked && (!def.gmOnly || gmMode));
       if (shouldShow && !map.hasLayer(groups[key])) groups[key].addTo(map);
       if (!shouldShow && map.hasLayer(groups[key])) map.removeLayer(groups[key]);
     });
   }
 
   Object.entries(layerDefs).forEach(([key, def]) => {
+    if (key === 'territorios') return;
     const label = document.createElement('label');
     label.className = `layer-toggle${def.gmOnly ? ' gm-layer' : ''}`;
 
@@ -813,6 +861,11 @@
 
   territoryLabelsToggle?.addEventListener('change', () => {
     territoryLabelsVisible = territoryLabelsToggle.checked;
+    renderFeatures(); syncGroupsToMap();
+  });
+
+  overlayBoundaryMode?.addEventListener('change', () => {
+    overlayBoundaryVisibility = overlayBoundaryMode.value;
     renderFeatures(); syncGroupsToMap();
   });
 
@@ -1424,6 +1477,7 @@
     get enabledTiers() { return new Set(enabledTiers); },
     get territoryBoundaryVisibility() { return territoryBoundaryVisibility; },
     get territoryLabelsVisible() { return territoryLabelsVisible; },
+    get overlayBoundaryVisibility() { return overlayBoundaryVisibility; },
     selectFeature, clearSelection, renderFeatures, syncGroupsToMap, featureHtml, styleFor,
     zoomBand, markerGlyph, markerFamily, markerTier, markerIconSvg, primaryCategory, canonLabel, statusLabel
   };
