@@ -1,0 +1,59 @@
+{
+  "version": "v0.9.1",
+  "tiers": {
+    "monumental": {
+      "base_px": 42,
+      "city_scale": 1.0,
+      "district_scale": 0.95,
+      "local_scale": 0.9
+    },
+    "relevant": {
+      "base_px": 34,
+      "city_scale": 0.85,
+      "district_scale": 1.0,
+      "local_scale": 0.95
+    },
+    "local": {
+      "base_px": 28,
+      "city_scale": 0.75,
+      "district_scale": 0.95,
+      "local_scale": 1.0
+    },
+    "micro": {
+      "base_px": 22,
+      "city_scale": 0.92,
+      "district_scale": 0.92,
+      "local_scale": 1.0,
+      "minimum_visual_px": 20
+    }
+  },
+  "hit_areas": {
+    "monumental": [
+      58,
+      66
+    ],
+    "relevant": [
+      48,
+      56
+    ],
+    "local": [
+      40,
+      48
+    ],
+    "micro": [
+      36,
+      42
+    ]
+  },
+  "hover_scale": 1.08,
+  "selected_scale": 1.1,
+  "madame_meia_noite": {
+    "unique": true,
+    "public": true,
+    "territory": "Baixa Vila de Lena",
+    "render": "monumental_pin",
+    "x": 8253,
+    "y": 6632,
+    "footprint_preserved": true
+  }
+}

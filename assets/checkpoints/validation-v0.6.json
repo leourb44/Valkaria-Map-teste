@@ -1,0 +1,29 @@
+{
+  "version": "v0.6",
+  "featureCount": 181,
+  "uniqueIds": 181,
+  "pending": 9,
+  "gmOnly": 3,
+  "layers": {
+    "territorios": 16,
+    "centralidades": 15,
+    "circulacao": 4,
+    "economia": 56,
+    "estrutura_funcional": 7,
+    "infraestrutura": 4,
+    "hidrografia": 4,
+    "historia": 10,
+    "campanha": 1,
+    "educacao": 9,
+    "instituicoes": 6,
+    "abastecimento": 1,
+    "religiao": 17,
+    "saude": 7,
+    "gm": 1,
+    "magia": 5,
+    "funerario": 6,
+    "seguranca": 12
+  },
+  "errors": [],
+  "valid": true
+}

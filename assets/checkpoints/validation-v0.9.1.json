@@ -1,0 +1,59 @@
+{
+  "version": "v0.9.1",
+  "preserved": [
+    "MASTER visual",
+    "Calibração Cartográfica MASTER v1.0",
+    "territórios",
+    "181 elementos existentes"
+  ],
+  "pin_sizes_px": {
+    "monumental": 42,
+    "relevant": 34,
+    "local": 28,
+    "micro": 22
+  },
+  "micro_city_effective_px": 20.24,
+  "madame": {
+    "occurrences_expected": 1,
+    "territory": "Baixa Vila de Lena",
+    "public": true,
+    "geometry": "point",
+    "x": 8253,
+    "y": 6632
+  },
+  "home": {
+    "wood_texture": "assets/home/wood-desk.jpg",
+    "leather_texture": "assets/home/leather-cover.jpg",
+    "transition_ms": 720,
+    "reduced_motion": true
+  },
+  "status": "STATIC_VALIDATION_PASSED",
+  "feature_count": 181,
+  "unique_id_count": 181,
+  "js_syntax": "passed",
+  "madame_occurrences": 1,
+  "madame_search_terms": {
+    "Madame": "passed",
+    "Meia-Noite": "passed",
+    "Madame Meia-Noite": "passed"
+  },
+  "protected_file_hash_checks": {
+    "assets/mapa-valkaria-master-v1.0.png": {
+      "unchanged": true,
+      "sha256": "a2ffcf5cd4c62f7dc5c297a347f5d495f03166f059206c820926622a25606a46"
+    },
+    "assets/checkpoints/calibracao-cartografica-master-v1.0.json": {
+      "unchanged": true,
+      "sha256": "5ce28268fe98fe72b433c18b8ae8cd2078145fc727c1a8987d83372b8514a243"
+    },
+    "js/data/territories.js": {
+      "unchanged": true,
+      "sha256": "14ad32d2661762a73dba047eee95427b0a20ea252cad0150fd31df7ffd07a023"
+    },
+    "js/calibration_v1.js": {
+      "unchanged": true,
+      "sha256": "5ae91581631e3d0a5df536002f9bc3cdfa31cfde64095688dc4b576094e43820"
+    }
+  },
+  "minimum_public_pin_visual_px": 20.24
+}

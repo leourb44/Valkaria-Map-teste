@@ -1,0 +1,52 @@
+{
+  "version": "v0.9",
+  "status": "REFERENCIA VISUAL OFICIAL IMPLEMENTADA",
+  "reference_image": "assets/checkpoints/REFERENCIA_VISUAL_OFICIAL_PINS_VALKARIA.png",
+  "hierarchy": {
+    "monumental": {
+      "base_medallion_px": 42,
+      "city_scale": 0.82,
+      "district_scale": 0.92,
+      "local_scale": 1.0,
+      "persistent_label": "district_and_local"
+    },
+    "relevant": {
+      "base_medallion_px": 30,
+      "city_scale": 0.72,
+      "district_scale": 0.88,
+      "local_scale": 1.0,
+      "persistent_label": "local_only"
+    },
+    "local": {
+      "base_medallion_px": 20,
+      "city_scale": 0.62,
+      "district_scale": 0.8,
+      "local_scale": 1.0,
+      "persistent_label": "hover_or_selected"
+    },
+    "micro": {
+      "base_medallion_px": 10,
+      "city_scale": 0.72,
+      "district_scale": 0.86,
+      "local_scale": 1.0,
+      "persistent_label": "hover_or_selected"
+    }
+  },
+  "public_point_counts": {
+    "monumental": 11,
+    "relevant": 41,
+    "local": 51,
+    "micro": 14,
+    "total": 117
+  },
+  "default_visible_public_points": 102,
+  "optional_analytical_centrality_points": 15,
+  "rules": [
+    "Todos os POIs publicos de camadas normais permanecem disponíveis em qualquer zoom.",
+    "Centralidades analíticas permanecem desligadas por padrão.",
+    "Modo Mestre e segredos continuam ocultos quando o modo Mestre está desligado.",
+    "A categoria muda a tinta interna; a moldura pertence a uma única família cartográfica.",
+    "Pins locais e micro não recebem rótulo permanente para preservar a leitura da arte-base.",
+    "Nenhuma geometria cartográfica congelada foi alterada."
+  ]
+}

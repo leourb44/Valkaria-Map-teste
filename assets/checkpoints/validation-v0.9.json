@@ -1,0 +1,14 @@
+{
+  "version": "v0.9",
+  "checks": {
+    "js_syntax": "passed",
+    "total_features_preserved": 181,
+    "point_features": 118,
+    "public_point_features": 117,
+    "default_visible_public_points": 102,
+    "gm_point_features_hidden_without_gm": 1,
+    "geometry_changes": 0,
+    "official_pin_reference_bundled": true
+  },
+  "browser_rendering": "not_automated_in_container_due_to_local-navigation policy; validate visually in user browser"
+}

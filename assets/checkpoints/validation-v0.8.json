@@ -1,0 +1,21 @@
+{
+  "version": "v0.8",
+  "base_image": "assets/mapa-valkaria-master-v1.0.png",
+  "logical_canvas": [
+    15000,
+    10000
+  ],
+  "calibration_version": "1.0",
+  "patched_feature_count": 40,
+  "master_feature_count": 40,
+  "preserved_approximate": [
+    "rocha-cinzenta",
+    "canais-cidade-praia-eixo-a",
+    "canais-cidade-praia-eixo-b",
+    "canais-cidade-praia-eixo-c"
+  ],
+  "content_policy": "v0.7 content preserved; geometry overridden non-destructively at runtime",
+  "status": "STATIC_VALIDATION_OK",
+  "all_patch_ids_resolved": true,
+  "missing_patch_ids": []
+}

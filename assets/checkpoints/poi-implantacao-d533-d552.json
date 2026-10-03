@@ -1,0 +1,27 @@
+{
+  "version": "d533-d552",
+  "status": "approved",
+  "note": "Fila de implantação aprovada. Elementos sem coordenada não devem receber pontos arbitrários.",
+  "items": [
+    {"id":"estatua-valkaria","status":"praticamente_determinada","decisao":"D533"},
+    {"id":"palacio-imperial","status":"setor_determinado_perimetro_palaciano","decisao":"D534"},
+    {"id":"biblioteca-duas-deusas","status":"praticamente_determinada","decisao":"D535"},
+    {"id":"emporio-belico-bellantor","status":"setor_determinado_mercado","decisao":"D536"},
+    {"id":"sassafras-artigos-alquimicos","status":"setor_determinado_mercado","decisao":"D537"},
+    {"id":"legrasse-legrasse","status":"setor_determinado_mercado","decisao":"D538"},
+    {"id":"loja-boca-cheia","status":"setor_determinado_mercado","decisao":"D539"},
+    {"id":"ponte-do-conhecimento","status":"setor_determinado_mercado","decisao":"D540"},
+    {"id":"metais-do-baixote","status":"setor_determinado_cidade_da_praia","decisao":"D541"},
+    {"id":"emporio-purpurea","status":"setor_muito_forte_centro_estatua","decisao":"D542"},
+    {"id":"reston-dubitatius","status":"setor_muito_forte_centro_estatua","decisao":"D543"},
+    {"id":"catedral-valkaria","status":"setor_provavel_nucleo_historico","decisao":"D544"},
+    {"id":"arena-imperial","status":"aberta","decisao":"D545"},
+    {"id":"banco-tibar","status":"aberta","decisao":"D546"},
+    {"id":"praca-grimbo","status":"aberta","decisao":"D547"},
+    {"id":"rocha-cinzenta","status":"aberta","decisao":"D548"},
+    {"id":"gazeta-reinado","status":"aberta","decisao":"D549"},
+    {"id":"casa-millicent","status":"aberta","decisao":"D550"},
+    {"id":"cancao-das-deusas","status":"auditar_fonte","decisao":"D551"},
+    {"id":"fonte-roramar","status":"auditoria_historica","decisao":"D552"}
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "atlas": "Valkaria",
+  "version": "v0.6-valkaria-viva-i",
+  "base": "v0.5",
+  "decisionRange": "D643–D957",
+  "importantCorrection": {
+    "Marco de Travessia de Valkaria": "Fica em Deheon, fora da cidade; não possui coordenada no mapa urbano."
+  },
+  "content": {
+    "commerceNamed": 45,
+    "religiousNewSites": 18,
+    "institutionalDefinitions": 35,
+    "continuityPending": 8,
+    "themes": [
+      "comércio comum e exclusivo",
+      "economia adulta/cinza",
+      "rede religiosa",
+      "educação",
+      "saúde",
+      "magia",
+      "funerário",
+      "Guarda",
+      "continuidade histórica"
+    ]
+  },
+  "cartographicPolicy": {
+    "newPOIs": "approximate unless explicitly candidate/pending/historical",
+    "pending": "registered and searchable, not rendered",
+    "macrogeometry": "Macrocalibração 01 preserved",
+    "publicGM": "clandestine material remains GM-only or GM detail"
+  },
+  "approvedDecisionBlocks": [
+    "D643-D699",
+    "D700-D762 (Marco de Travessia corrected)",
+    "D763-D836",
+    "D837-D894",
+    "D895-D914",
+    "D915-D957"
+  ],
+  "newFiles": [
+    "js/data/continuity_v06.js",
+    "js/data/valkaria_viva_commerce.js",
+    "js/data/religion_v06.js",
+    "js/data/institutions_v06.js",
+    "js/data/urban_profiles_v06.js"
+  ],
+  "featureCountAfterIntegration": 181,
+  "religiousCoverage": {
+    "majorGods": 20,
+    "allRepresented": true,
+    "officialReused": [
+      "Catedral de Valkaria",
+      "Biblioteca das Duas Deusas"
+    ],
+    "minorGodTibar": "Banco Tibar + Capela do Primeiro Tibar integrada"
+  },
+  "supersessionNote": "D837–D894 foram aprovadas como estrutura inicial; D895–D957 são a auditoria final/nomenclatura refinada usada na implementação quando há sobreposição."
+}

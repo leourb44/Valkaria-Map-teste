@@ -1,0 +1,49 @@
+{
+  "atlas": "Valkaria",
+  "version": "v0.5",
+  "status": "decisoes_aprovadas",
+  "range": "D553-D642",
+  "groups": {
+    "D553-D575": {
+      "title": "Implantacao dos grandes POIs oficiais",
+      "summary": [
+        "Fonte Roramar no nucleo historico central, proxima a Estatua e fora da zona palaciana restrita.",
+        "Catedral no Centro historico, fora do Perimetro Palaciano.",
+        "Arena no setor sul intramuros, associada ao Grande Acesso Sul e a uma zona funcional propria.",
+        "Banco Tibar na interface Centro-Mercado.",
+        "Praca Grimbo no oeste/sudoeste intramuros.",
+        "Rocha Cinzenta no setor sul/sudoeste intramuros, conectada a grandes vias.",
+        "Gazeta do Reinado em Entrepassos, proxima a Cem Portas.",
+        "Casa Millicent no setor leste intramuros, fora de Nitamu-ra.",
+        "POIs monumentais podem usar poligonos; implantacao por setor nao equivale a lote definitivo."
+      ]
+    },
+    "D576-D610": {
+      "title": "Infraestrutura urbana e camadas historicas",
+      "summary": [
+        "Abastecimento, drenagem e esgotos sao redes distintas.",
+        "Fonte Roramar ancora a historia do abastecimento.",
+        "Aquedutos podem pertencer a diferentes epocas; nenhum tracado completo e inventado nesta versao.",
+        "Cidade da Praia concentra canais visiveis, sem monopolizar a hidrografia.",
+        "Subterraneo/esgotos e circulacao elevada recebem camadas proprias.",
+        "Valkaria possui multiplos cemiterios e respostas de emergencia fragmentadas.",
+        "Nucleo primordial, Antiga Alta e futuras muralhas antigas integram Valkaria Historica.",
+        "Portao da Queda continua sem posicao ate auditoria especifica."
+      ]
+    },
+    "D611-D642": {
+      "title": "Rede de vida cotidiana, comercio e servicos",
+      "summary": [
+        "Todo territorio habitado possui servicos basicos implicitos; apenas locais notaveis viram POIs.",
+        "Perfis economicos representam concentracao, nao exclusividade.",
+        "Centro: turismo, peregrinacao e servicos caros.",
+        "Recomeco: luxo tradicional; Baixa: cultura e noite; Entrepassos: cotidiano denso; Cem Portas: nichos e reparos; Os Solares: servicos privados.",
+        "Mercado: maxima variedade comercial; Cidade da Praia: producao; Favela: reaproveitamento e improvisacao; Nitamu-ra: especializacao cultural; Refugio: luxo de novos ricos.",
+        "Corredor Verde e Vila Elfica: conhecimento, cultura, saude e artesanato; Ultimo Pavilhao, Poco Velho e Quatro Patios recebem perfis cotidianos proprios.",
+        "Cinturao das Caravanas concentra economia de passagem.",
+        "Vida adulta e economia cinza permanecem distribuidas pela cidade.",
+        "Ritmo temporal passa a ser dado dos territorios e futuros POIs."
+      ]
+    }
+  }
+}

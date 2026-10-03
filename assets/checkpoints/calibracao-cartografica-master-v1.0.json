@@ -1,0 +1,1890 @@
+{
+  "atlas": "Valkaria",
+  "calibration_version": "v1.0",
+  "canvas": {
+    "width": 15000,
+    "height": 10000,
+    "origin": "bottom-left"
+  },
+  "base_art": "MASTER VISUAL OFICIAL — ATLAS DE VALKARIA v1.0",
+  "workflow": {
+    "approval_mode": "autoapprove_conservative",
+    "rule": "Ajustes conservadores coerentes com o MASTER e decisões congeladas são aprovados automaticamente; conflitos estruturais retornam ao usuário."
+  },
+  "feature_count": 40,
+  "features": {
+    "alta-vila-historica": {
+      "id": "alta-vila-historica",
+      "nome": "Antiga Alta Vila de Lena",
+      "geometria": "polygon",
+      "layer": "historica",
+      "status": "APROVADA / CONGELADA COMO CAMADA HISTÓRICA",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          3600,
+          7000
+        ],
+        [
+          4300,
+          7800
+        ],
+        [
+          5000,
+          8250
+        ],
+        [
+          6000,
+          8480
+        ],
+        [
+          7300,
+          8520
+        ],
+        [
+          8600,
+          8460
+        ],
+        [
+          9700,
+          8200
+        ],
+        [
+          10600,
+          7900
+        ],
+        [
+          11550,
+          7450
+        ],
+        [
+          11300,
+          7050
+        ],
+        [
+          10600,
+          6700
+        ],
+        [
+          9900,
+          6500
+        ],
+        [
+          9000,
+          6560
+        ],
+        [
+          8000,
+          6640
+        ],
+        [
+          7000,
+          6720
+        ],
+        [
+          6100,
+          6860
+        ],
+        [
+          5300,
+          6950
+        ],
+        [
+          4450,
+          6900
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "baixa-vila": {
+      "id": "baixa-vila",
+      "nome": "Baixa Vila de Lena",
+      "geometria": "polygon",
+      "status": "APROVADA / CONGELADA",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          5050,
+          6750
+        ],
+        [
+          5480,
+          6990
+        ],
+        [
+          6100,
+          7050
+        ],
+        [
+          6800,
+          6940
+        ],
+        [
+          7600,
+          6830
+        ],
+        [
+          8450,
+          6780
+        ],
+        [
+          9300,
+          6740
+        ],
+        [
+          9850,
+          6610
+        ],
+        [
+          10050,
+          6420
+        ],
+        [
+          9930,
+          6210
+        ],
+        [
+          9300,
+          6220
+        ],
+        [
+          8500,
+          6260
+        ],
+        [
+          7700,
+          6290
+        ],
+        [
+          6950,
+          6320
+        ],
+        [
+          6250,
+          6400
+        ],
+        [
+          5600,
+          6510
+        ],
+        [
+          5150,
+          6600
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "centro": {
+      "id": "centro",
+      "nome": "Centro",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          5050,
+          5860
+        ],
+        [
+          5350,
+          6160
+        ],
+        [
+          6100,
+          6320
+        ],
+        [
+          7150,
+          6280
+        ],
+        [
+          8150,
+          6230
+        ],
+        [
+          9200,
+          6200
+        ],
+        [
+          9850,
+          6070
+        ],
+        [
+          10100,
+          5820
+        ],
+        [
+          10180,
+          5500
+        ],
+        [
+          9900,
+          5280
+        ],
+        [
+          9820,
+          5000
+        ],
+        [
+          9560,
+          4780
+        ],
+        [
+          9100,
+          4580
+        ],
+        [
+          8600,
+          4380
+        ],
+        [
+          8120,
+          4020
+        ],
+        [
+          7550,
+          3820
+        ],
+        [
+          6900,
+          3920
+        ],
+        [
+          6250,
+          4120
+        ],
+        [
+          5800,
+          4380
+        ],
+        [
+          5480,
+          4680
+        ],
+        [
+          5150,
+          4920
+        ],
+        [
+          4850,
+          5150
+        ],
+        [
+          4550,
+          5420
+        ],
+        [
+          4720,
+          5660
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "cidade-praia": {
+      "id": "cidade-praia",
+      "nome": "Cidade da Praia",
+      "geometria": "polygon",
+      "status": "APROVADA / CONGELADA",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          1850,
+          5200
+        ],
+        [
+          2250,
+          5050
+        ],
+        [
+          2650,
+          5000
+        ],
+        [
+          3100,
+          5010
+        ],
+        [
+          3440,
+          5160
+        ],
+        [
+          4200,
+          4800
+        ],
+        [
+          5200,
+          3960
+        ],
+        [
+          4590,
+          3164
+        ],
+        [
+          3740,
+          3292
+        ],
+        [
+          2824,
+          3728
+        ],
+        [
+          2055,
+          4414
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "cem-portas": {
+      "id": "cem-portas",
+      "nome": "Cem Portas",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          5800,
+          7540
+        ],
+        [
+          6500,
+          7300
+        ],
+        [
+          7300,
+          7040
+        ],
+        [
+          8300,
+          7000
+        ],
+        [
+          9300,
+          6960
+        ],
+        [
+          10100,
+          6820
+        ],
+        [
+          10850,
+          6780
+        ]
+      ]
+    },
+    "eixo-centro-biblioteca": {
+      "id": "eixo-centro-biblioteca",
+      "nome": "Eixo funcional Centro–Biblioteca",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7614,
+          5368
+        ],
+        [
+          8300,
+          5100
+        ],
+        [
+          8900,
+          4700
+        ],
+        [
+          9400,
+          4400
+        ],
+        [
+          9857,
+          4121
+        ]
+      ]
+    },
+    "eixo-centro-cidade-praia": {
+      "id": "eixo-centro-cidade-praia",
+      "nome": "Eixo funcional Centro–Cidade da Praia",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7614,
+          5368
+        ],
+        [
+          6800,
+          5100
+        ],
+        [
+          6000,
+          4800
+        ],
+        [
+          5200,
+          4500
+        ],
+        [
+          4500,
+          4200
+        ],
+        [
+          3600,
+          3950
+        ]
+      ]
+    },
+    "eixo-centro-mercado": {
+      "id": "eixo-centro-mercado",
+      "nome": "Eixo funcional Centro–Mercado",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7900,
+          5400
+        ],
+        [
+          8800,
+          5550
+        ],
+        [
+          9800,
+          5600
+        ],
+        [
+          10800,
+          5700
+        ],
+        [
+          11500,
+          5750
+        ]
+      ]
+    },
+    "eixo-historico-centro-baixa-alta": {
+      "id": "eixo-historico-centro-baixa-alta",
+      "nome": "Eixo Histórico Centro–Baixa–Alta",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7614,
+          5368
+        ],
+        [
+          7550,
+          5900
+        ],
+        [
+          7600,
+          6300
+        ],
+        [
+          7500,
+          6750
+        ],
+        [
+          7400,
+          7200
+        ],
+        [
+          7450,
+          7600
+        ]
+      ]
+    },
+    "eixo-mercado-nitamu-ra": {
+      "id": "eixo-mercado-nitamu-ra",
+      "nome": "Eixo funcional Mercado–Nitamu-ra",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          11500,
+          5750
+        ],
+        [
+          12200,
+          5650
+        ],
+        [
+          12800,
+          5400
+        ],
+        [
+          13450,
+          5050
+        ]
+      ]
+    },
+    "eixo-norte-centro": {
+      "id": "eixo-norte-centro",
+      "nome": "Eixo funcional Norte–Centro",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7650,
+          8420
+        ],
+        [
+          7600,
+          7800
+        ],
+        [
+          7500,
+          7200
+        ],
+        [
+          7550,
+          6600
+        ],
+        [
+          7600,
+          6000
+        ],
+        [
+          7614,
+          5368
+        ]
+      ]
+    },
+    "eixo-sul-centro": {
+      "id": "eixo-sul-centro",
+      "nome": "Eixo funcional Sul–Centro",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7650,
+          3680
+        ],
+        [
+          7600,
+          4100
+        ],
+        [
+          7700,
+          4600
+        ],
+        [
+          7650,
+          5000
+        ],
+        [
+          7614,
+          5368
+        ]
+      ]
+    },
+    "grande-acesso-norte": {
+      "id": "grande-acesso-norte",
+      "nome": "Grande Acesso Norte",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7620,
+          10000
+        ],
+        [
+          7700,
+          9500
+        ],
+        [
+          7600,
+          9000
+        ],
+        [
+          7650,
+          8420
+        ]
+      ]
+    },
+    "grande-acesso-sul": {
+      "id": "grande-acesso-sul",
+      "nome": "Grande Acesso Sul",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7650,
+          3680
+        ],
+        [
+          7580,
+          3000
+        ],
+        [
+          7640,
+          2200
+        ],
+        [
+          7520,
+          1100
+        ],
+        [
+          7540,
+          0
+        ]
+      ]
+    },
+    "transicao-centro-baixa": {
+      "id": "transicao-centro-baixa",
+      "nome": "Transição Centro–Baixa",
+      "geometria": "corridor",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          5250,
+          6500
+        ],
+        [
+          6200,
+          6380
+        ],
+        [
+          7200,
+          6300
+        ],
+        [
+          8200,
+          6250
+        ],
+        [
+          9100,
+          6230
+        ],
+        [
+          9950,
+          6220
+        ]
+      ]
+    },
+    "entrepassos": {
+      "id": "entrepassos",
+      "nome": "Entrepassos",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          5900,
+          7760
+        ],
+        [
+          6350,
+          8040
+        ],
+        [
+          7000,
+          7920
+        ],
+        [
+          7700,
+          8000
+        ],
+        [
+          8450,
+          7800
+        ],
+        [
+          9000,
+          7560
+        ],
+        [
+          9100,
+          7130
+        ],
+        [
+          8900,
+          6820
+        ],
+        [
+          8200,
+          6820
+        ],
+        [
+          7550,
+          6860
+        ],
+        [
+          6900,
+          6900
+        ],
+        [
+          6250,
+          7000
+        ],
+        [
+          6050,
+          7330
+        ],
+        [
+          5600,
+          7580
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "cinturao-caravanas": {
+      "id": "cinturao-caravanas",
+      "nome": "Cinturão das Caravanas",
+      "tipo": "zona_funcional",
+      "geometria": "reserve",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          4700,
+          9060
+        ],
+        [
+          5850,
+          9660
+        ],
+        [
+          6900,
+          9950
+        ],
+        [
+          9000,
+          9900
+        ],
+        [
+          10450,
+          9360
+        ],
+        [
+          9600,
+          8900
+        ],
+        [
+          8350,
+          8600
+        ],
+        [
+          7100,
+          8500
+        ],
+        [
+          5850,
+          8660
+        ]
+      ]
+    },
+    "favela-goblins": {
+      "id": "favela-goblins",
+      "nome": "Favela dos Goblins",
+      "tipo": "bairro",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          8850,
+          8760
+        ],
+        [
+          8950,
+          9100
+        ],
+        [
+          10750,
+          9180
+        ],
+        [
+          11650,
+          8720
+        ],
+        [
+          11600,
+          8320
+        ],
+        [
+          11000,
+          8260
+        ],
+        [
+          10350,
+          8350
+        ],
+        [
+          9450,
+          8480
+        ]
+      ]
+    },
+    "mercado": {
+      "id": "mercado",
+      "nome": "Mercado",
+      "tipo": "bairro",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          10450,
+          6060
+        ],
+        [
+          11200,
+          6330
+        ],
+        [
+          12350,
+          6050
+        ],
+        [
+          12600,
+          5750
+        ],
+        [
+          12250,
+          5200
+        ],
+        [
+          11400,
+          5300
+        ],
+        [
+          10800,
+          5580
+        ]
+      ]
+    },
+    "nitamu-ra": {
+      "id": "nitamu-ra",
+      "nome": "Nitamu-ra",
+      "tipo": "bairro",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          12288,
+          5152
+        ],
+        [
+          12815,
+          5908
+        ],
+        [
+          13800,
+          5946
+        ],
+        [
+          14580,
+          4985
+        ],
+        [
+          14175,
+          4034
+        ],
+        [
+          13195,
+          4395
+        ],
+        [
+          12453,
+          4681
+        ]
+      ]
+    },
+    "refugio-felicidade": {
+      "id": "refugio-felicidade",
+      "nome": "Refúgio da Felicidade",
+      "tipo": "bairro",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          10980,
+          6860
+        ],
+        [
+          11880,
+          7240
+        ],
+        [
+          12780,
+          6990
+        ],
+        [
+          13280,
+          6500
+        ],
+        [
+          12820,
+          6100
+        ],
+        [
+          11920,
+          6200
+        ],
+        [
+          11120,
+          6500
+        ]
+      ]
+    },
+    "muralha-atual": {
+      "id": "muralha-atual",
+      "nome": "Muralha Atual",
+      "geometria": "polyline",
+      "status": "APROVADA / CONGELADA",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          4400,
+          7776
+        ],
+        [
+          5104,
+          8336
+        ],
+        [
+          6934,
+          8425
+        ],
+        [
+          8594,
+          8447
+        ],
+        [
+          10205,
+          7954
+        ],
+        [
+          11523,
+          7430
+        ],
+        [
+          13020,
+          6735
+        ],
+        [
+          14435,
+          5024
+        ],
+        [
+          14070,
+          3730
+        ],
+        [
+          13375,
+          2895
+        ],
+        [
+          11840,
+          2690
+        ],
+        [
+          10645,
+          2670
+        ],
+        [
+          9552,
+          2196
+        ],
+        [
+          7666,
+          2160
+        ],
+        [
+          6352,
+          2160
+        ],
+        [
+          4864,
+          2820
+        ],
+        [
+          3728,
+          3160
+        ],
+        [
+          2368,
+          3970
+        ],
+        [
+          1514,
+          4873
+        ],
+        [
+          1562,
+          6180
+        ],
+        [
+          3040,
+          6560
+        ],
+        [
+          3872,
+          7152
+        ],
+        [
+          4400,
+          7776
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "os-solares": {
+      "id": "os-solares",
+      "nome": "Os Solares",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          9020,
+          7580
+        ],
+        [
+          10260,
+          7820
+        ],
+        [
+          10980,
+          7470
+        ],
+        [
+          11010,
+          7140
+        ],
+        [
+          10880,
+          6880
+        ],
+        [
+          10080,
+          6860
+        ],
+        [
+          9180,
+          6980
+        ],
+        [
+          9000,
+          7220
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "perimetro-palaciano": {
+      "id": "perimetro-palaciano",
+      "nome": "Perímetro Palaciano",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          9450,
+          5835
+        ],
+        [
+          9780,
+          5630
+        ],
+        [
+          10090,
+          5320
+        ],
+        [
+          10130,
+          5000
+        ],
+        [
+          9920,
+          4700
+        ],
+        [
+          9300,
+          4450
+        ],
+        [
+          8780,
+          4310
+        ],
+        [
+          8320,
+          4500
+        ],
+        [
+          7960,
+          4680
+        ],
+        [
+          7900,
+          5000
+        ],
+        [
+          8070,
+          5330
+        ],
+        [
+          8080,
+          5650
+        ],
+        [
+          8390,
+          5840
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "poco-velho": {
+      "id": "poco-velho",
+      "nome": "Poço Velho",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          3480,
+          5960
+        ],
+        [
+          3260,
+          5840
+        ],
+        [
+          3370,
+          5580
+        ],
+        [
+          3580,
+          5360
+        ],
+        [
+          3440,
+          5160
+        ],
+        [
+          3100,
+          5010
+        ],
+        [
+          2650,
+          5000
+        ],
+        [
+          2250,
+          5050
+        ],
+        [
+          1900,
+          5220
+        ],
+        [
+          1840,
+          5480
+        ],
+        [
+          2080,
+          5760
+        ],
+        [
+          2500,
+          5950
+        ],
+        [
+          2980,
+          6060
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "quatro-patios": {
+      "id": "quatro-patios",
+      "nome": "Quatro Pátios",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          7900,
+          3500
+        ],
+        [
+          8500,
+          3620
+        ],
+        [
+          9150,
+          3550
+        ],
+        [
+          9750,
+          3300
+        ],
+        [
+          10100,
+          2920
+        ],
+        [
+          10000,
+          2550
+        ],
+        [
+          9550,
+          2320
+        ],
+        [
+          9000,
+          2260
+        ],
+        [
+          8450,
+          2420
+        ],
+        [
+          8000,
+          2750
+        ],
+        [
+          7780,
+          3180
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "recomeco": {
+      "id": "recomeco",
+      "nome": "Bairro do Recomeço",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          3000,
+          6510
+        ],
+        [
+          3540,
+          6720
+        ],
+        [
+          4230,
+          6970
+        ],
+        [
+          4700,
+          6900
+        ],
+        [
+          5350,
+          6540
+        ],
+        [
+          5930,
+          6200
+        ],
+        [
+          5660,
+          5850
+        ],
+        [
+          5150,
+          5700
+        ],
+        [
+          4530,
+          5490
+        ],
+        [
+          4060,
+          5640
+        ],
+        [
+          3820,
+          5930
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "bosque-allihanna": {
+      "id": "bosque-allihanna",
+      "nome": "Bosque de Allihanna",
+      "geometria": "polygon",
+      "camada": "territorios",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          9700,
+          5350
+        ],
+        [
+          10400,
+          5400
+        ],
+        [
+          11600,
+          5000
+        ],
+        [
+          12600,
+          4550
+        ],
+        [
+          13900,
+          4050
+        ],
+        [
+          13750,
+          3500
+        ],
+        [
+          12600,
+          3650
+        ],
+        [
+          11800,
+          3300
+        ],
+        [
+          11000,
+          3850
+        ],
+        [
+          10400,
+          4350
+        ],
+        [
+          10000,
+          4850
+        ]
+      ]
+    },
+    "corredor-verde": {
+      "id": "corredor-verde",
+      "nome": "Reserva do Corredor Verde",
+      "geometria": "reserve",
+      "camada": "territorios",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          8000,
+          3700
+        ],
+        [
+          10050,
+          4720
+        ],
+        [
+          9800,
+          5330
+        ],
+        [
+          10300,
+          5400
+        ],
+        [
+          13750,
+          4150
+        ],
+        [
+          14000,
+          3750
+        ],
+        [
+          13450,
+          2500
+        ],
+        [
+          12050,
+          1950
+        ],
+        [
+          10450,
+          2300
+        ],
+        [
+          9750,
+          3200
+        ]
+      ]
+    },
+    "lago-marah": {
+      "id": "lago-marah",
+      "nome": "Lago de Marah",
+      "geometria": "polygon",
+      "camada": "hidrografia",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          9550,
+          3650
+        ],
+        [
+          9800,
+          4000
+        ],
+        [
+          10350,
+          4150
+        ],
+        [
+          10950,
+          4120
+        ],
+        [
+          11550,
+          3920
+        ],
+        [
+          11950,
+          3550
+        ],
+        [
+          11800,
+          3200
+        ],
+        [
+          11250,
+          2950
+        ],
+        [
+          10550,
+          2920
+        ],
+        [
+          9950,
+          3150
+        ],
+        [
+          9500,
+          3450
+        ]
+      ]
+    },
+    "vila-elfica": {
+      "id": "vila-elfica",
+      "nome": "Vila Élfica",
+      "geometria": "polygon",
+      "camada": "territorios",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          11630,
+          3239
+        ],
+        [
+          12368,
+          3687
+        ],
+        [
+          13816,
+          3440
+        ],
+        [
+          13367,
+          2873
+        ],
+        [
+          12482,
+          2745
+        ],
+        [
+          12142,
+          2967
+        ]
+      ]
+    },
+    "ultimo-pavilhao": {
+      "id": "ultimo-pavilhao",
+      "nome": "Último Pavilhão",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO",
+      "canvas": [
+        15000,
+        10000
+      ],
+      "points": [
+        [
+          4950,
+          3780
+        ],
+        [
+          5580,
+          3720
+        ],
+        [
+          6240,
+          3650
+        ],
+        [
+          6840,
+          3500
+        ],
+        [
+          7210,
+          3330
+        ],
+        [
+          7300,
+          3000
+        ],
+        [
+          7070,
+          2810
+        ],
+        [
+          6520,
+          2590
+        ],
+        [
+          6150,
+          2480
+        ],
+        [
+          5580,
+          2700
+        ],
+        [
+          5150,
+          3050
+        ],
+        [
+          4880,
+          3320
+        ]
+      ],
+      "version": "v1.0"
+    },
+    "estatua-valkaria": {
+      "id": "estatua-valkaria",
+      "nome": "Estátua de Valkaria",
+      "geometria": "point",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "x": 7614,
+      "y": 5368
+    },
+    "palacio-imperial": {
+      "id": "palacio-imperial",
+      "nome": "Palácio Imperial",
+      "geometria": "point",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "x": 8915,
+      "y": 5089
+    },
+    "biblioteca-duas-deusas": {
+      "id": "biblioteca-duas-deusas",
+      "nome": "Biblioteca das Duas Deusas",
+      "geometria": "point",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "x": 9857,
+      "y": 4121
+    },
+    "a-casa": {
+      "id": "a-casa",
+      "nome": "A Casa — Ordem do Aço d’Aurora",
+      "geometria": "point",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "x": 6538,
+      "y": 6078
+    },
+    "catedral-valkaria": {
+      "id": "catedral-valkaria",
+      "nome": "Catedral de Valkaria",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "points": [
+        [
+          6570,
+          5520
+        ],
+        [
+          6810,
+          5670
+        ],
+        [
+          7160,
+          5600
+        ],
+        [
+          7290,
+          5330
+        ],
+        [
+          7100,
+          5100
+        ],
+        [
+          6740,
+          5080
+        ],
+        [
+          6520,
+          5270
+        ]
+      ]
+    },
+    "arena-imperial": {
+      "id": "arena-imperial",
+      "nome": "Arena Imperial",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "points": [
+        [
+          7160,
+          3390
+        ],
+        [
+          7500,
+          3570
+        ],
+        [
+          7950,
+          3500
+        ],
+        [
+          8170,
+          3200
+        ],
+        [
+          8010,
+          2850
+        ],
+        [
+          7600,
+          2730
+        ],
+        [
+          7200,
+          2910
+        ],
+        [
+          7040,
+          3150
+        ]
+      ]
+    },
+    "complexo-portao-norte": {
+      "id": "complexo-portao-norte",
+      "nome": "Complexo do Grande Acesso Norte",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "points": [
+        [
+          7270,
+          8830
+        ],
+        [
+          7970,
+          8830
+        ],
+        [
+          8110,
+          8640
+        ],
+        [
+          8000,
+          8400
+        ],
+        [
+          7290,
+          8400
+        ],
+        [
+          7160,
+          8630
+        ]
+      ]
+    },
+    "complexo-portao-sul": {
+      "id": "complexo-portao-sul",
+      "nome": "Complexo do Grande Acesso Sul",
+      "geometria": "polygon",
+      "status": "APROVADO / CONGELADO — AUTOAPROVAÇÃO",
+      "points": [
+        [
+          7250,
+          2250
+        ],
+        [
+          7970,
+          2250
+        ],
+        [
+          8080,
+          2050
+        ],
+        [
+          7970,
+          1840
+        ],
+        [
+          7280,
+          1840
+        ],
+        [
+          7160,
+          2040
+        ]
+      ]
+    }
+  },
+  "source_files": {
+    "alta-vila-historica": "/mnt/data/valkaria_calibracao_antiga_alta_vila_v1/antiga-alta-vila_v1.0-APROVADA-HISTORICA.json",
+    "baixa-vila": "/mnt/data/valkaria_calibracao_baixa_vila_v1/baixa-vila_v1.0-APROVADA.json",
+    "centro": "/mnt/data/valkaria_calibracao_centro_v1/centro_v1.0-APROVADO.json",
+    "cidade-praia": "/mnt/data/valkaria_calibracao_cidade_praia_v1/cidade-da-praia_v1.0-APROVADA.json",
+    "cem-portas": "/mnt/data/valkaria_calibracao_eixos_v1/cem-portas_v1.0-APROVADO.json",
+    "eixo-centro-biblioteca": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-centro-biblioteca_v1.0-APROVADO.json",
+    "eixo-centro-cidade-praia": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-centro-cidade-praia_v1.0-APROVADO.json",
+    "eixo-centro-mercado": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-centro-mercado_v1.0-APROVADO.json",
+    "eixo-historico-centro-baixa-alta": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-historico-centro-baixa-alta_v1.0-APROVADO.json",
+    "eixo-mercado-nitamu-ra": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-mercado-nitamu-ra_v1.0-APROVADO.json",
+    "eixo-norte-centro": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-norte-centro_v1.0-APROVADO.json",
+    "eixo-sul-centro": "/mnt/data/valkaria_calibracao_eixos_v1/eixo-sul-centro_v1.0-APROVADO.json",
+    "grande-acesso-norte": "/mnt/data/valkaria_calibracao_eixos_v1/grande-acesso-norte_v1.0-APROVADO.json",
+    "grande-acesso-sul": "/mnt/data/valkaria_calibracao_eixos_v1/grande-acesso-sul_v1.0-APROVADO.json",
+    "transicao-centro-baixa": "/mnt/data/valkaria_calibracao_eixos_v1/transicao-centro-baixa_v1.0-APROVADO.json",
+    "entrepassos": "/mnt/data/valkaria_calibracao_entrepassos_v1/entrepassos_v1.0-APROVADO.json",
+    "cinturao-caravanas": "/mnt/data/valkaria_calibracao_lote_leste_norte_v1/cinturao-caravanas_v1.0-APROVADO.json",
+    "favela-goblins": "/mnt/data/valkaria_calibracao_lote_leste_norte_v1/favela-goblins_v1.0-APROVADO.json",
+    "mercado": "/mnt/data/valkaria_calibracao_lote_leste_norte_v1/mercado_v1.0-APROVADO.json",
+    "nitamu-ra": "/mnt/data/valkaria_calibracao_lote_leste_norte_v1/nitamu-ra_v1.0-APROVADO.json",
+    "refugio-felicidade": "/mnt/data/valkaria_calibracao_lote_leste_norte_v1/refugio-felicidade_v1.0-APROVADO.json",
+    "muralha-atual": "/mnt/data/valkaria_calibracao_muralha_v1/muralha-atual_v1.0-APROVADA.json",
+    "os-solares": "/mnt/data/valkaria_calibracao_os_solares_v1/os-solares_v1.0-APROVADO.json",
+    "perimetro-palaciano": "/mnt/data/valkaria_calibracao_perimetro_palaciano_v1/perimetro-palaciano_v1.0-APROVADO.json",
+    "poco-velho": "/mnt/data/valkaria_calibracao_poco_velho_v1/poco-velho_v1.0-APROVADO.json",
+    "quatro-patios": "/mnt/data/valkaria_calibracao_quatro_patios_v1/quatro-patios_v1.0-APROVADO.json",
+    "recomeco": "/mnt/data/valkaria_calibracao_recomeco_v1/recomeco_v1.0-APROVADO.json",
+    "bosque-allihanna": "/mnt/data/valkaria_calibracao_sistema_verde_v1/bosque-allihanna_v1.0-APROVADO.json",
+    "corredor-verde": "/mnt/data/valkaria_calibracao_sistema_verde_v1/corredor-verde_v1.0-APROVADO.json",
+    "lago-marah": "/mnt/data/valkaria_calibracao_sistema_verde_v1/lago-marah_v1.0-APROVADO.json",
+    "vila-elfica": "/mnt/data/valkaria_calibracao_sistema_verde_v1/vila-elfica_v1.0-APROVADO.json",
+    "ultimo-pavilhao": "/mnt/data/valkaria_calibracao_ultimo_pavilhao_v1/ultimo-pavilhao_v1.0-APROVADO.json"
+  },
+  "structural_audit": {
+    "landmarks_confirmed": [
+      "estatua-valkaria",
+      "palacio-imperial",
+      "biblioteca-duas-deusas",
+      "a-casa",
+      "catedral-valkaria",
+      "arena-imperial"
+    ],
+    "accesses_confirmed": [
+      "complexo-portao-norte",
+      "complexo-portao-sul"
+    ],
+    "preserved_approximate": [
+      "rocha-cinzenta",
+      "canais-cidade-praia-eixo-a",
+      "canais-cidade-praia-eixo-b",
+      "canais-cidade-praia-eixo-c"
+    ],
+    "note": "Rocha Cinzenta e canais permanecem aproximados porque a arte-base não oferece detalhe seguro para calibração mais precisa."
+  }
+}

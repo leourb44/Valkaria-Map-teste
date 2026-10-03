@@ -1,0 +1,50 @@
+window.VALKARIA_FEATURES.push(
+{
+  "id": "canais-cidade-praia-eixo-a",
+  "nome": "Rede superficial da Cidade da Praia — Canal A",
+  "tipo": "canal_urbano",
+  "geometria": "polyline",
+  "camada": "hidrografia",
+  "statusCanonico": "expansao_valkaria",
+  "statusCartografico": "approximate",
+  "fronteira": "strong",
+  "publico": true,
+  "descricaoPublica": "Trecho cartográfico aproximado da rede de canais superficiais que caracteriza a Cidade da Praia.",
+  "descricaoGM": "Reconstrução visual conservadora sobre a base v0.4. A existência de canais no bairro é oficial; este traçado específico ainda é cartográfico e ajustável. D525–D527.",
+  "origem": "Atlas de Arton + reconstrução_cartografica",
+  "decisoes": ["D525", "D526", "D527"],
+  "points": [[2220,4580],[2750,4470],[3300,4410],[3890,4290],[4510,4140],[5110,3980]]
+},
+{
+  "id": "canais-cidade-praia-eixo-b",
+  "nome": "Rede superficial da Cidade da Praia — Canal B",
+  "tipo": "canal_urbano",
+  "geometria": "polyline",
+  "camada": "hidrografia",
+  "statusCanonico": "expansao_valkaria",
+  "statusCartografico": "approximate",
+  "fronteira": "strong",
+  "publico": true,
+  "descricaoPublica": "Trecho secundário aproximado da rede de canais da Cidade da Praia.",
+  "descricaoGM": "Reconstrução visual conservadora sobre a base v0.4; não representa ainda uma hidrografia final. D525–D527.",
+  "origem": "Atlas de Arton + reconstrução_cartografica",
+  "decisoes": ["D525", "D526", "D527"],
+  "points": [[2410,4140],[2980,4110],[3540,3990],[4120,3880],[4700,3650]]
+},
+{
+  "id": "canais-cidade-praia-eixo-c",
+  "nome": "Rede superficial da Cidade da Praia — Canal C",
+  "tipo": "canal_urbano",
+  "geometria": "polyline",
+  "camada": "hidrografia",
+  "statusCanonico": "expansao_valkaria",
+  "statusCartografico": "approximate",
+  "fronteira": "strong",
+  "publico": true,
+  "descricaoPublica": "Trecho meridional aproximado da rede de canais da Cidade da Praia.",
+  "descricaoGM": "Reconstrução visual conservadora sobre a base v0.4; refinamento será feito quando a hidrografia final for congelada. D525–D527.",
+  "origem": "Atlas de Arton + reconstrução_cartografica",
+  "decisoes": ["D525", "D526", "D527"],
+  "points": [[2830,3650],[3370,3720],[3900,3580],[4430,3440],[4930,3280]]
+}
+);
