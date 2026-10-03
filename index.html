@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2d2118" />
+  <title>Valkaria — Atlas Interativo da Capital do Mundo</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Capa do atlas: V12 -->
+  <div id="atlasIntro" class="atlas-intro" role="dialog" aria-label="Abrir o Atlas de Valkaria">
+    <div class="desk-props" aria-hidden="true">
+      <span class="desk-map-sheet"></span>
+      <span class="desk-compass"></span>
+      <span class="desk-quill"></span>
+      <span class="desk-inkwell"></span>
+    </div>
+    <div class="book-stage">
+      <button id="openAtlasBtn" class="book" type="button" aria-label="Abrir o Atlas de Valkaria">
+        <span class="book-pages" aria-hidden="true"></span>
+        <span class="book-spine" aria-hidden="true"></span>
+        <span class="book-corner corner-tl" aria-hidden="true"></span>
+        <span class="book-corner corner-tr" aria-hidden="true"></span>
+        <span class="book-corner corner-bl" aria-hidden="true"></span>
+        <span class="book-corner corner-br" aria-hidden="true"></span>
+        <span class="cover-sigil" aria-hidden="true"><span>✦</span></span>
+        <span class="campaign-mark">CARTOGRAFIA DA CAPITAL DO MUNDO</span>
+        <span class="cover-rule" aria-hidden="true"></span>
+        <span class="cover-title">ATLAS DE<br>VALKARIA</span>
+        <span class="cover-subtitle">Sob o Céu Escarlate</span>
+        <span class="book-ribbon" aria-hidden="true"></span>
+        <span class="open-atlas-label">Abrir Atlas</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="atlas-shell" id="atlasShell" aria-label="Atlas Interativo de Valkaria">
+    <section class="map-wrap" aria-label="Mapa interativo de Valkaria">
+      <div id="map"></div>
+
+      <!-- Busca: V42 -->
+      <div class="map-search" id="mapSearch">
+        <label class="sr-only" for="searchInput">Buscar no atlas</label>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Buscar em Valkaria…" autocomplete="off" />
+          <button id="searchBtn" type="button" class="icon-button" aria-label="Buscar">⌕</button>
+        </div>
+        <div id="searchResults" class="search-results" aria-live="polite"></div>
+      </div>
+
+      <!-- Plaqueta discreta: V48 -->
+      <button id="titlePlaque" class="title-plaque" type="button" aria-label="Abrir resumo de Valkaria">
+        <strong>VALKARIA</strong>
+        <span>Atlas da Capital do Mundo</span>
+      </button>
+
+      <!-- Aba vertical: V43 -->
+      <button id="toolsTab" class="tools-tab" type="button" aria-expanded="false" aria-controls="toolsPanel">
+        <span aria-hidden="true">✥</span><span>Ferramentas</span>
+      </button>
+
+      <!-- Ferramentas do Cartógrafo -->
+      <aside id="toolsPanel" class="tools-panel" aria-label="Ferramentas do Cartógrafo" aria-hidden="true">
+        <div class="drawer-header">
+          <div>
+            <small>Ferramentas do</small>
+            <h2>Cartógrafo</h2>
+          </div>
+          <button id="toolsCloseBtn" class="icon-button" type="button" aria-label="Fechar ferramentas">×</button>
+        </div>
+
+        <div class="tools-scroll">
+          <section class="tool-section is-open">
+            <button class="tool-section-toggle" type="button" aria-expanded="true">Locais e instituições</button>
+            <div class="tool-section-body">
+              <div id="categoryFilters" class="filter-chips compact-grid"></div>
+            </div>
+          </section>
+
+          <section class="tool-section">
+            <button class="tool-section-toggle" type="button" aria-expanded="false">Camadas do atlas</button>
+            <div class="tool-section-body" hidden>
+              <div id="layerToggles" class="layer-toggles"></div>
+            </div>
+          </section>
+
+          <section class="tool-section">
+            <button class="tool-section-toggle" type="button" aria-expanded="false">Filtros avançados</button>
+            <div class="tool-section-body" hidden>
+              <h3>Status cartográfico</h3>
+              <div id="statusFilters" class="filter-chips"></div>
+              <h3>Status canônico</h3>
+              <div id="canonFilters" class="filter-chips"></div>
+              <h3>Relevância</h3>
+              <div id="relevanceFilters" class="filter-chips"></div>
+            </div>
+          </section>
+
+          <section class="tool-section session-tools">
+            <button class="tool-section-toggle" type="button" aria-expanded="false">Marcas da sessão</button>
+            <div class="tool-section-body" hidden>
+              <p class="muted tool-help">Marcas temporárias. Desaparecem ao recarregar o atlas.</p>
+              <label for="sessionMarkerType">Marca</label>
+              <select id="sessionMarkerType">
+                <option value="important">★ Importante</option>
+                <option value="visit">◇ Visitar</option>
+                <option value="danger">⚠ Perigo</option>
+                <option value="npc">♟ NPC</option>
+                <option value="clue">? Pista</option>
+              </select>
+              <label for="sessionMarkerNote">Nota manuscrita</label>
+              <textarea id="sessionMarkerNote" rows="3" maxlength="180" placeholder="Opcional…"></textarea>
+              <div class="tool-actions">
+                <button id="applySessionMarkerBtn" type="button" disabled>Marcar seleção</button>
+                <button id="clearSessionMarkersBtn" type="button">Limpar marcas</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="tool-section master-tools">
+            <button class="tool-section-toggle" type="button" aria-expanded="false">Mestre</button>
+            <div class="tool-section-body" hidden>
+              <button id="gmBtn" class="wide-button master-button" type="button" aria-pressed="false">Ativar Modo Mestre</button>
+              <p class="muted tool-help">Revela informações e locais que não pertencem ao atlas público.</p>
+            </div>
+          </section>
+
+          <section class="tool-section">
+            <button class="tool-section-toggle" type="button" aria-expanded="false">Cartografia técnica</button>
+            <div class="tool-section-body" hidden>
+              <button id="coordsBtn" class="wide-button" type="button" aria-pressed="false">Mostrar coordenadas</button>
+              <button id="calibrationBtn" class="wide-button" type="button" aria-pressed="false">Modo Calibração</button>
+
+              <div id="calibrationPanel" class="calibration-panel" hidden>
+                <p class="muted calibration-help">Selecione um elemento, arraste os vértices e exporte a geometria quando estiver satisfeito.</p>
+                <label for="calibrationFeature">Elemento</label>
+                <select id="calibrationFeature"></select>
+                <div class="calibration-actions">
+                  <button id="editGeometryBtn" type="button">Editar geometria</button>
+                  <button id="stopEditBtn" type="button" disabled>Encerrar edição</button>
+                </div>
+                <div class="calibration-actions">
+                  <button id="addVertexBtn" type="button" aria-pressed="false" disabled>+ Vértice</button>
+                  <button id="removeVertexBtn" type="button" aria-pressed="false" disabled>− Vértice</button>
+                </div>
+                <div class="calibration-actions">
+                  <button id="undoGeometryBtn" type="button" disabled>Desfazer</button>
+                  <button id="resetGeometryBtn" type="button" disabled>Restaurar</button>
+                </div>
+                <label class="reference-toggle">
+                  <input id="referenceToggle" type="checkbox" />
+                  <span>Referência aproximada v0.4</span>
+                </label>
+                <label for="referenceOpacity" class="opacity-label">Opacidade: <strong id="referenceOpacityValue">35%</strong></label>
+                <input id="referenceOpacity" class="opacity-range" type="range" min="10" max="80" value="35" step="5" />
+                <div id="calibrationStatus" class="calibration-status muted">Nenhuma geometria em edição.</div>
+                <div class="calibration-actions">
+                  <button id="copyGeometryBtn" type="button" disabled>Copiar geometria</button>
+                  <button id="exportGeometryBtn" type="button">Exportar alterações</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="tool-section">
+            <button class="tool-section-toggle" type="button" aria-expanded="false">Atlas</button>
+            <div class="tool-section-body" hidden>
+              <button id="resetAtlasBtn" class="wide-button" type="button">Restaurar visão do atlas</button>
+              <button id="legendIndexBtn" class="wide-button" type="button">Ver índice de símbolos</button>
+              <div class="atlas-version">Atlas Interativo de Valkaria · Sob o Céu Escarlate · <strong>v0.9.1</strong></div>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <!-- Gaveta de informação: V44 -->
+      <aside id="detailsDrawer" class="details-drawer" aria-label="Informações do atlas" aria-hidden="true">
+        <div class="drawer-handle" aria-hidden="true"></div>
+        <div class="drawer-header details-header">
+          <div>
+            <small>Ficha do atlas</small>
+            <h2 id="detailsTitle">Valkaria</h2>
+          </div>
+          <button id="detailsCloseBtn" class="icon-button" type="button" aria-label="Fechar informações">×</button>
+        </div>
+        <div id="details" class="details muted">
+          Selecione um território ou local do mapa.
+        </div>
+      </aside>
+
+      <!-- Navegação inferior esquerda: V45/V47 -->
+      <div class="nav-cluster" aria-label="Navegação do mapa">
+        <div class="compass-control" aria-label="Rosa dos ventos">
+          <span class="compass-n">N</span>
+          <button id="homeBtn" type="button" class="compass-home" aria-label="Voltar à visão geral">✦</button>
+        </div>
+        <div class="zoom-controls">
+          <button id="zoomInBtn" type="button" aria-label="Aproximar">+</button>
+          <button id="zoomOutBtn" type="button" aria-label="Afastar">−</button>
+        </div>
+        <div class="scale-readout">
+          <div class="scale-line"><span></span></div>
+          <div><strong id="zoomLevelLabel">Visão da Cidade</strong><small id="relativeScaleLabel">escala relativa 1×</small></div>
+        </div>
+      </div>
+
+      <div id="coordsReadout" class="coords-readout" hidden></div>
+      <div id="modeBadge" class="mode-badge">Atlas público</div>
+
+      <!-- Legenda contextual: V27/V51 -->
+      <aside id="contextLegend" class="context-legend" aria-label="Legenda contextual">
+        <div class="legend-head"><strong>Legenda</strong><button id="legendExpandBtn" class="text-button" type="button">Índice</button></div>
+        <div id="legendItems" class="legend-items"></div>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Índice completo de símbolos -->
+  <div id="legendModal" class="modal-backdrop" hidden>
+    <section class="legend-modal" role="dialog" aria-modal="true" aria-labelledby="legendModalTitle">
+      <header class="drawer-header">
+        <div><small>Índice ilustrado</small><h2 id="legendModalTitle">Símbolos do Atlas</h2></div>
+        <button id="legendModalClose" class="icon-button" type="button" aria-label="Fechar índice">×</button>
+      </header>
+      <div id="legendFull" class="legend-full"></div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script src="js/config.js"></script>
+  <script src="js/data/territories.js"></script>
+  <script src="js/data/centralities.js"></script>
+  <script src="js/data/routes.js"></script>
+  <script src="js/data/infrastructure.js"></script>
+  <script src="js/data/hydrography.js"></script>
+  <script src="js/data/history.js"></script>
+  <script src="js/data/campaign.js"></script>
+  <script src="js/data/locations.js"></script>
+  <script src="js/data/factions.js"></script>
+  <script src="js/data/phase3_expansion.js"></script>
+  <script src="js/data/urban_profiles.js"></script>
+  <script src="js/data/continuity_v06.js"></script>
+  <script src="js/data/valkaria_viva_commerce.js"></script>
+  <script src="js/data/religion_v06.js"></script>
+  <script src="js/data/institutions_v06.js"></script>
+  <script src="js/data/urban_profiles_v06.js"></script>
+  <script src="js/calibration_v1.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/ui_v07.js"></script>
+</body>
+</html>
