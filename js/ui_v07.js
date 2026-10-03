@@ -103,14 +103,14 @@
     });
   });
 
-  // Abertura do livro: visual forte, uso cotidiano rápido e silencioso.
+  // Entrada no atlas: transição curta sobre a arte oficial da home.
   openAtlasBtn?.addEventListener('click', () => {
     intro.classList.add('is-opening');
     window.setTimeout(() => {
       intro.hidden = true;
       app.map.invalidateSize(false);
       app.map.fitBounds(app.bounds, { animate: false });
-    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 10 : 720);
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 10 : 540);
   });
 
   function updateZoomUI(detail = {}) {
