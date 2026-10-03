@@ -11,37 +11,18 @@
 </head>
 <body>
   <!-- Capa do atlas: V12 -->
-  <div id="atlasIntro" class="atlas-intro" role="dialog" aria-label="Abrir o Atlas de Valkaria">
-    <div class="desk-props" aria-hidden="true">
-      <span class="desk-map-sheet"></span>
-      <span class="desk-compass"></span>
-      <span class="desk-quill"></span>
-      <span class="desk-inkwell"></span>
-    </div>
-    <div class="book-stage">
-      <button id="openAtlasBtn" class="book" type="button" aria-label="Abrir o Atlas de Valkaria">
-        <span class="book-page-block" aria-hidden="true"></span>
-        <span class="book-pages" aria-hidden="true"></span>
-        <span class="book-spine" aria-hidden="true">
-          <span class="spine-band band-a"></span>
-          <span class="spine-band band-b"></span>
-          <span class="spine-band band-c"></span>
-        </span>
-        <span class="cover-frame" aria-hidden="true"></span>
-        <span class="book-corner corner-tl" aria-hidden="true"></span>
-        <span class="book-corner corner-tr" aria-hidden="true"></span>
-        <span class="book-corner corner-bl" aria-hidden="true"></span>
-        <span class="book-corner corner-br" aria-hidden="true"></span>
-        <span class="cover-sigil" aria-hidden="true"><span>✦</span></span>
-        <span class="campaign-mark">CARTOGRAFIA DA CAPITAL DO MUNDO</span>
-        <span class="cover-rule" aria-hidden="true"></span>
-        <span class="cover-title">ATLAS DE<br>VALKARIA</span>
-        <span class="cover-subtitle">Sob o Céu Escarlate</span>
-        <span class="book-clasp" aria-hidden="true"><span></span></span>
-        <span class="book-ribbon" aria-hidden="true"></span>
-        <span class="open-atlas-label">Abrir Atlas</span>
-      </button>
-    </div>
+  <div id="atlasIntro" class="atlas-intro atlas-home" role="dialog" aria-label="Abrir o Atlas de Valkaria">
+    <button id="openAtlasBtn" class="atlas-home-hero" type="button" aria-label="Abrir o Atlas de Valkaria">
+      <img
+        class="atlas-home-art"
+        src="assets/home/atlas-valkaria-home-v1.webp"
+        alt="Livro do Atlas de Valkaria em couro ornamentado, com a marca Sob o Céu Escarlate gravada na capa"
+        width="1200"
+        height="900"
+        decoding="async"
+      />
+      <span class="atlas-home-cta">Abrir Atlas</span>
+    </button>
   </div>
 
   <main class="atlas-shell" id="atlasShell" aria-label="Atlas Interativo de Valkaria">
@@ -212,7 +193,7 @@
             <div class="tool-section-body" hidden>
               <button id="resetAtlasBtn" class="wide-button" type="button">Restaurar visão do atlas</button>
               <button id="legendIndexBtn" class="wide-button" type="button">Ver índice de símbolos</button>
-              <div class="atlas-version">Atlas Interativo de Valkaria · Sob o Céu Escarlate · <strong>v0.9.3-dev</strong></div>
+              <div class="atlas-version">Atlas Interativo de Valkaria · Sob o Céu Escarlate · <strong>v0.9.3-dev · Home Oficial em teste</strong></div>
             </div>
           </section>
         </div>
