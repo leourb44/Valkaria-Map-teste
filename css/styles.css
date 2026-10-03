@@ -919,237 +919,19 @@ body.placing-session-mark .map-wrap::before {
 
 
 /* ==========================================================
-   v0.9.3-dev — Polimento visual do livro e da interface
+   v0.9.3-dev — Polimento visual da interface
    ========================================================== */
 
-.atlas-intro {
-  background-position: center 42%;
-}
-.atlas-intro::before {
-  opacity: .26;
-  background-image:
-    linear-gradient(102deg, rgba(255,219,157,.075), transparent 26%),
-    repeating-linear-gradient(6deg, transparent 0 19px, rgba(255,255,255,.018) 20px 21px),
-    repeating-linear-gradient(96deg, transparent 0 33px, rgba(0,0,0,.05) 34px 35px);
-}
-.book-stage {
-  transform: translateY(1.5vh);
-  filter:
-    drop-shadow(0 22px 14px rgba(0,0,0,.24))
-    drop-shadow(0 42px 38px rgba(0,0,0,.36));
-}
-.book {
-  width: min(540px, 74vw);
-  border-color: rgba(36,20,12,.92);
-  border-radius: 11px 23px 23px 11px;
-  transform: rotateX(2.4deg) rotateY(-5.5deg) rotateZ(-1.2deg);
-  box-shadow:
-    0 34px 58px rgba(0,0,0,.48),
-    13px 10px 0 -4px #c9b88f,
-    17px 14px 0 -5px #907d5d,
-    inset 0 0 0 3px rgba(18,10,6,.66),
-    inset 0 0 0 7px rgba(177,127,63,.18),
-    inset 20px 0 28px rgba(0,0,0,.34),
-    inset -10px 0 18px rgba(0,0,0,.16);
-}
-.book:hover {
-  transform: translateY(-6px) rotateX(1.4deg) rotateY(-3.8deg) rotateZ(-.7deg);
-}
-.book-page-block {
-  position: absolute;
-  z-index: -3;
-  left: 5%;
-  right: -18px;
-  top: 13px;
-  bottom: -19px;
-  border-radius: 7px 21px 21px 7px;
-  background:
-    linear-gradient(90deg, rgba(86,66,40,.18), transparent 13%),
-    repeating-linear-gradient(0deg,
-      #d5c49e 0 2px,
-      #b7a37e 2px 3px,
-      #e4d4b1 3px 5px,
-      #c8b68f 5px 6px);
-  border: 1px solid #6f5a3d;
-  box-shadow:
-    8px 11px 20px rgba(0,0,0,.32),
-    inset -8px 0 10px rgba(83,60,34,.12);
-}
-.book-pages {
-  right: -14px;
-  top: 5%;
-  bottom: 4.5%;
-  width: 23px;
-  opacity: .96;
-}
-.cover-frame {
-  position: absolute;
-  inset: 4.5% 5% 4.7% 7%;
-  border: 1px solid rgba(201,158,82,.46);
-  border-radius: 5px 14px 14px 5px;
-  box-shadow:
-    inset 0 0 0 2px rgba(24,13,8,.6),
-    inset 0 0 0 5px rgba(137,91,45,.08),
-    0 0 0 1px rgba(19,10,6,.48);
-  pointer-events: none;
-}
-.book-spine {
-  inset: 2.2% auto 2.2% 2.8%;
-  width: 10.5%;
-  overflow: visible;
-  border-radius: 58% 22% 22% 58%;
-  background:
-    linear-gradient(90deg,
-      rgba(0,0,0,.58),
-      rgba(95,57,30,.7) 24%,
-      rgba(168,112,57,.16) 54%,
-      rgba(0,0,0,.3));
-  box-shadow:
-    inset -2px 0 0 rgba(193,143,78,.16),
-    3px 0 8px rgba(0,0,0,.22);
-}
-.spine-band {
-  position: absolute;
-  left: -10%;
-  right: -7%;
-  height: 4.8%;
-  border-radius: 45%;
-  background:
-    linear-gradient(180deg,
-      rgba(209,158,84,.18),
-      rgba(35,17,9,.55) 42%,
-      rgba(181,124,63,.12));
-  border-top: 1px solid rgba(199,143,70,.26);
-  border-bottom: 1px solid rgba(13,7,4,.6);
-  box-shadow: 0 2px 3px rgba(0,0,0,.28);
-}
-.band-a { top: 18%; }
-.band-b { top: 48%; }
-.band-c { top: 76%; }
-
-.book-corner {
-  width: 68px;
-  height: 68px;
-  opacity: .83;
-  filter:
-    drop-shadow(0 1px 0 rgba(255,217,137,.09))
-    drop-shadow(0 2px 2px rgba(0,0,0,.5));
-}
-.corner-tl { left: 4.4%; top: 3.8%; }
-.corner-tr { right: 3.9%; top: 3.8%; }
-.corner-bl { left: 4.4%; bottom: 3.8%; }
-.corner-br { right: 3.9%; bottom: 3.8%; }
-
-.cover-sigil {
-  width: 104px;
-  height: 104px;
-  margin-top: 4%;
-  margin-bottom: 7%;
-  border-color: rgba(190,143,72,.84);
-  outline-color: rgba(28,14,8,.86);
-  background:
-    radial-gradient(circle at 43% 34%, rgba(229,190,114,.09), transparent 27%),
-    radial-gradient(circle, rgba(126,82,37,.2), rgba(15,8,5,.3));
-  box-shadow:
-    inset 0 0 0 2px rgba(26,14,8,.54),
-    inset 0 0 18px rgba(0,0,0,.42),
-    0 1px 0 rgba(237,202,130,.12);
-}
-.cover-sigil span {
-  filter: drop-shadow(0 2px 1px rgba(0,0,0,.75));
-}
-.campaign-mark {
-  opacity: .7;
-  letter-spacing: .24em;
-}
-.cover-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.2rem, 6.1vw, 4.15rem);
-  letter-spacing: .085em;
-  text-shadow:
-    0 2px 0 #170c07,
-    0 -1px 0 rgba(231,198,130,.18),
-    1px 1px 4px rgba(0,0,0,.72);
-}
-.cover-subtitle {
-  letter-spacing: .14em;
-  opacity: .9;
-}
-.book-clasp {
-  position: absolute;
-  right: -12px;
-  top: 48%;
-  width: 38px;
-  height: 72px;
-  transform: translateY(-50%);
-  border-radius: 7px 10px 10px 7px;
-  background:
-    linear-gradient(90deg,
-      #5e4327,
-      #b3884b 24%,
-      #6a4a28 55%,
-      #2d1d11);
-  border: 1px solid #24150c;
-  box-shadow:
-    3px 4px 7px rgba(0,0,0,.4),
-    inset 0 0 0 2px rgba(216,175,98,.12);
-}
-.book-clasp::before {
-  content: '';
-  position: absolute;
-  left: -13px;
-  top: 11px;
-  bottom: 11px;
-  width: 15px;
-  border-radius: 5px 0 0 5px;
-  background: linear-gradient(90deg, #2d1a0e, #75502d);
-  border: 1px solid #21120a;
-}
-.book-clasp span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  transform: translate(-50%,-50%);
-  background: radial-gradient(circle at 35% 30%, #caa25b, #614321 62%, #25170c);
-  border: 1px solid #27170c;
-  box-shadow: 0 1px 2px rgba(0,0,0,.55);
-}
-.open-atlas-label {
-  bottom: 5.4%;
-  border-radius: 4px;
-  min-width: 150px;
-  background:
-    linear-gradient(#5c341e,#2b180e);
-  border: 1px solid #aa8246;
-  box-shadow:
-    inset 0 0 0 1px rgba(231,191,113,.12),
-    0 2px 6px rgba(0,0,0,.46);
-}
-.open-atlas-label::before,
-.open-atlas-label::after {
-  content: '◆';
-  margin: 0 .42rem;
-  font-size: .52rem;
-  opacity: .62;
-}
-
-/* Painel do cartógrafo com hierarquia de livro/índice. */
 .tools-panel {
   border-right: 1px solid rgba(58,41,27,.42);
   box-shadow: 12px 0 32px rgba(40,28,18,.16);
 }
 .drawer-header {
-  background:
-    linear-gradient(180deg, rgba(74,48,31,.96), rgba(51,34,23,.98));
+  background: linear-gradient(180deg, rgba(74,48,31,.96), rgba(51,34,23,.98));
   color: #dfc58c;
   border-bottom-color: rgba(183,139,73,.44);
 }
-.drawer-header small {
-  color: rgba(223,197,140,.66);
-}
+.drawer-header small { color: rgba(223,197,140,.66); }
 .drawer-header h2 {
   color: #ead4a2;
   letter-spacing: .035em;
@@ -1173,9 +955,7 @@ body.placing-session-mark .map-wrap::before {
   background: linear-gradient(90deg, rgba(168,127,67,.09), transparent 76%);
   box-shadow: inset 3px 0 0 rgba(160,117,58,.5);
 }
-.tool-section-toggle::after {
-  font-size: .83rem;
-}
+.tool-section-toggle::after { font-size: .83rem; }
 .tool-section-body {
   padding-left: 10px;
   padding-right: 10px;
@@ -1192,26 +972,19 @@ body.placing-session-mark .map-wrap::before {
 .tier-actions button,
 .tool-actions button,
 .wide-button {
-  background:
-    linear-gradient(180deg, rgba(248,239,218,.9), rgba(226,210,177,.78));
+  background: linear-gradient(180deg, rgba(248,239,218,.9), rgba(226,210,177,.78));
   box-shadow: inset 0 1px rgba(255,255,255,.35);
 }
 .layer-toggle,
-.status-filter {
-  padding: .1rem 0;
-}
+.status-filter { padding: .1rem 0; }
 select,
 textarea,
-input[type="search"] {
-  background-color: rgba(250,242,222,.72);
-}
+input[type="search"] { background-color: rgba(250,242,222,.72); }
 .session-marks-list {
   background: rgba(111,80,45,.035);
   border-radius: 5px;
   padding: .45rem;
 }
-
-/* Busca e plaqueta com menos aparência de painel moderno. */
 .map-search {
   border-radius: 4px;
   border-color: rgba(72,52,34,.45);
@@ -1220,299 +993,13 @@ input[type="search"] {
 .title-plaque {
   border-radius: 2px 2px 10px 10px;
   border-top: 0;
-  box-shadow:
-    0 5px 14px rgba(40,28,18,.12),
-    inset 0 1px rgba(255,255,255,.3);
+  box-shadow: 0 5px 14px rgba(40,28,18,.12), inset 0 1px rgba(255,255,255,.3);
 }
 .tools-tab {
-  background:
-    linear-gradient(90deg,#2d1d13,#4a3120 52%,#382417);
+  background: linear-gradient(90deg,#2d1d13,#4a3120 52%,#382417);
   border-color: rgba(157,112,57,.52);
-  box-shadow:
-    5px 8px 18px rgba(35,24,15,.24),
-    inset -1px 0 rgba(197,148,76,.16);
+  box-shadow: 5px 8px 18px rgba(35,24,15,.24), inset -1px 0 rgba(197,148,76,.16);
 }
-
-@media (max-width: 760px) {
-  .book {
-    width: min(88vw, 450px);
-  }
-  .book-clasp {
-    right: -8px;
-    width: 30px;
-    height: 58px;
-  }
-  .cover-sigil {
-    width: 82px;
-    height: 82px;
-  }
-}
-
-
-/* ==========================================================
-   v0.9.3-dev — Correção: fólio de couro escuro
-   Substitui a capa clara/listrada por couro construído em CSS.
-   ========================================================== */
-
-.book-stage {
-  transform: translateY(1vh);
-  filter:
-    drop-shadow(0 24px 18px rgba(0,0,0,.28))
-    drop-shadow(0 42px 34px rgba(0,0,0,.36));
-}
-
-.book {
-  width: min(470px, 70vw);
-  aspect-ratio: 4 / 5.2;
-  padding: 10% 11% 12% 13%;
-  color: #c3a36a;
-  border: 1px solid #140a06;
-  border-radius: 8px 17px 17px 8px;
-  background-image:
-    radial-gradient(circle at 24% 18%, rgba(255,230,177,.045), transparent 18%),
-    radial-gradient(circle at 72% 72%, rgba(0,0,0,.28), transparent 31%),
-    repeating-radial-gradient(ellipse at 32% 38%,
-      rgba(255,255,255,.012) 0 1px,
-      rgba(0,0,0,.018) 1px 3px,
-      transparent 3px 7px),
-    linear-gradient(96deg,
-      #1a0e09 0%,
-      #2b1710 8%,
-      #3a2116 28%,
-      #301a12 63%,
-      #22120d 100%);
-  background-size: auto, auto, 19px 13px, auto;
-  box-shadow:
-    0 28px 56px rgba(0,0,0,.48),
-    inset 0 0 0 3px rgba(10,5,3,.78),
-    inset 0 0 0 7px rgba(132,87,42,.22),
-    inset 18px 0 26px rgba(0,0,0,.34),
-    inset -10px 0 20px rgba(0,0,0,.2);
-  transform: rotateX(1.5deg) rotateY(-3.2deg) rotateZ(-.7deg);
-}
-
-.book:hover {
-  transform: translateY(-4px) rotateX(1deg) rotateY(-2deg) rotateZ(-.35deg);
-  box-shadow:
-    0 34px 64px rgba(0,0,0,.54),
-    inset 0 0 0 3px rgba(10,5,3,.78),
-    inset 0 0 0 7px rgba(145,96,47,.25),
-    inset 18px 0 26px rgba(0,0,0,.34),
-    inset -10px 0 20px rgba(0,0,0,.2);
-}
-
-/* Remove as duas molduras antigas que deixavam a capa parecendo uma folha. */
-.book::before,
-.book::after {
-  display: none;
-}
-
-.book-page-block {
-  z-index: -3;
-  left: 5%;
-  right: -13px;
-  top: 10px;
-  bottom: -13px;
-  border-radius: 6px 16px 16px 6px;
-  background:
-    linear-gradient(90deg, rgba(69,50,31,.2), transparent 13%),
-    repeating-linear-gradient(0deg,
-      #bba77d 0 1px,
-      #d4c39a 1px 3px,
-      #927d59 3px 4px,
-      #c8b68b 4px 6px);
-  border: 1px solid #604c31;
-  box-shadow: 6px 9px 16px rgba(0,0,0,.34);
-}
-
-.book-pages {
-  z-index: -2;
-  right: -9px;
-  top: 5%;
-  bottom: 5%;
-  width: 13px;
-  border-radius: 0 10px 10px 0;
-  background:
-    repeating-linear-gradient(0deg,
-      #c9b78d 0 1px,
-      #927d59 1px 2px,
-      #d8c69c 2px 4px);
-  box-shadow: inset 3px 0 4px rgba(58,41,24,.3);
-}
-
-.cover-frame {
-  inset: 5.2% 5.5% 5.3% 7.7%;
-  border: 1px solid rgba(173,126,59,.42);
-  border-radius: 4px 11px 11px 4px;
-  box-shadow:
-    inset 0 0 0 2px rgba(14,7,4,.7),
-    0 0 0 1px rgba(5,3,2,.42);
-}
-
-.book-spine {
-  inset: 2.4% auto 2.4% 2.4%;
-  width: 9.2%;
-  border-radius: 58% 14% 14% 58%;
-  background:
-    linear-gradient(90deg,
-      #100806,
-      #26120c 34%,
-      #422418 58%,
-      #1b0e09);
-  border-right: 1px solid rgba(156,104,50,.18);
-  box-shadow:
-    inset -2px 0 3px rgba(0,0,0,.42),
-    2px 0 6px rgba(0,0,0,.16);
-}
-
-.spine-band {
-  left: 2%;
-  right: 2%;
-  height: 2.7%;
-  border-radius: 45%;
-  background:
-    linear-gradient(180deg,
-      rgba(152,101,50,.18),
-      rgba(18,8,5,.78) 48%,
-      rgba(118,74,35,.12));
-  border: 0;
-  box-shadow: 0 1px 2px rgba(0,0,0,.32);
-}
-.band-a { top: 18%; }
-.band-b { top: 49%; }
-.band-c { top: 78%; }
-
-.book-corner {
-  width: 54px;
-  height: 54px;
-  opacity: .52;
-  border-color: #7f5b2c;
-  filter: none;
-}
-
-.cover-sigil {
-  width: 76px;
-  height: 76px;
-  margin: 4% auto 8%;
-  border: 2px solid rgba(158,111,51,.7);
-  outline: 1px solid rgba(16,8,5,.74);
-  outline-offset: 5px;
-  color: #b78d4d;
-  background:
-    radial-gradient(circle at 38% 32%, rgba(222,181,105,.07), transparent 25%),
-    radial-gradient(circle, rgba(84,48,24,.22), rgba(9,5,3,.2));
-  box-shadow:
-    inset 0 0 10px rgba(0,0,0,.48),
-    0 1px 0 rgba(233,194,120,.08);
-}
-.cover-sigil span {
-  font-size: 2.05rem;
-}
-
-.campaign-mark {
-  font-size: clamp(.52rem, 1.15vw, .66rem);
-  letter-spacing: .2em;
-  color: #927346;
-  opacity: .68;
-}
-
-.cover-rule {
-  width: 50%;
-  margin: 5% auto 6%;
-  opacity: .7;
-}
-
-.cover-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.75rem, 4.7vw, 2.95rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: .07em;
-  color: #b58c4d;
-  text-shadow:
-    0 2px 0 #100704,
-    0 -1px 0 rgba(226,184,105,.1),
-    1px 2px 3px rgba(0,0,0,.66);
-}
-
-.cover-subtitle {
-  margin-top: 7%;
-  font-size: clamp(.72rem, 1.6vw, .92rem);
-  letter-spacing: .14em;
-  color: #96784d;
-  opacity: .8;
-}
-
-.book-clasp {
-  right: -7px;
-  top: 50%;
-  width: 22px;
-  height: 44px;
-  border-radius: 4px 7px 7px 4px;
-  background:
-    linear-gradient(90deg,
-      #3c2816,
-      #806039 42%,
-      #3b2715);
-  border: 1px solid #170d07;
-  box-shadow:
-    2px 3px 5px rgba(0,0,0,.38),
-    inset 0 0 0 1px rgba(187,143,75,.08);
-}
-.book-clasp::before {
-  left: -8px;
-  top: 8px;
-  bottom: 8px;
-  width: 9px;
-  background: linear-gradient(90deg, #1d1009, #53371e);
-}
-.book-clasp span {
-  width: 7px;
-  height: 7px;
-  background: radial-gradient(circle at 35% 30%, #94703c, #3f2a17 65%, #160c06);
-}
-
-.book-ribbon {
-  left: 16%;
-  bottom: -15px;
-  width: 22px;
-  height: 67px;
-  opacity: .68;
-}
-
-.open-atlas-label {
-  bottom: 6%;
-  min-width: auto;
-  padding: 5px 15px 6px;
-  border-radius: 3px;
-  color: #af8d58;
-  font-size: .68rem;
-  letter-spacing: .11em;
-  background:
-    linear-gradient(180deg, rgba(77,43,25,.64), rgba(28,15,9,.76));
-  border: 1px solid rgba(150,108,54,.56);
-  box-shadow:
-    inset 0 0 0 1px rgba(219,177,103,.045),
-    0 2px 4px rgba(0,0,0,.35);
-  text-shadow: 0 1px 0 #0f0704;
-}
-.open-atlas-label::before,
-.open-atlas-label::after {
-  content: '';
-  margin: 0;
-}
-
-@media (max-width: 760px) {
-  .book {
-    width: min(84vw, 420px);
-  }
-  .book-clasp {
-    right: -6px;
-    width: 19px;
-    height: 38px;
-  }
-}
-
 
 /* ==========================================================
    v0.9.3-dev — Home Oficial v1
@@ -1529,7 +1016,6 @@ input[type="search"] {
     url('../assets/home/wood-desk.jpg') center / cover no-repeat;
   perspective: none;
 }
-
 .atlas-home::before {
   content: '';
   position: absolute;
@@ -1540,7 +1026,6 @@ input[type="search"] {
     linear-gradient(115deg, rgba(255,213,145,.045), transparent 35%);
   opacity: 1;
 }
-
 .atlas-home::after {
   content: '';
   position: absolute;
@@ -1548,7 +1033,6 @@ input[type="search"] {
   pointer-events: none;
   box-shadow: inset 0 0 120px rgba(8,4,2,.54);
 }
-
 .atlas-home-hero {
   position: relative;
   z-index: 2;
@@ -1566,24 +1050,18 @@ input[type="search"] {
   cursor: pointer;
   transform: scale(.985);
   transform-origin: center;
-  transition:
-    transform .32s cubic-bezier(.2,.7,.2,1),
-    filter .32s ease,
-    opacity .52s ease;
+  transition: transform .32s cubic-bezier(.2,.7,.2,1), filter .32s ease, opacity .52s ease;
 }
-
 .atlas-home-hero:hover {
   border: 0;
   background: transparent;
   transform: scale(1);
   filter: brightness(1.025) saturate(1.015);
 }
-
 .atlas-home-hero:focus-visible {
   outline: 1px solid rgba(196,151,78,.72);
   outline-offset: 8px;
 }
-
 .atlas-home-art {
   display: block;
   width: 100%;
@@ -1598,7 +1076,6 @@ input[type="search"] {
     drop-shadow(0 28px 32px rgba(0,0,0,.34))
     drop-shadow(0 7px 8px rgba(0,0,0,.24));
 }
-
 .atlas-home-cta {
   position: absolute;
   left: 50%;
@@ -1609,11 +1086,8 @@ input[type="search"] {
   border: 1px solid rgba(167,118,58,.72);
   border-radius: 3px;
   color: #d2ad70;
-  background:
-    linear-gradient(180deg, rgba(67,39,24,.9), rgba(28,16,10,.94));
-  box-shadow:
-    0 3px 10px rgba(0,0,0,.38),
-    inset 0 0 0 1px rgba(224,183,108,.08);
+  background: linear-gradient(180deg, rgba(67,39,24,.9), rgba(28,16,10,.94));
+  box-shadow: 0 3px 10px rgba(0,0,0,.38), inset 0 0 0 1px rgba(224,183,108,.08);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(.68rem, .9vw, .82rem);
   font-weight: 700;
@@ -1623,30 +1097,23 @@ input[type="search"] {
   opacity: .88;
   transition: opacity .2s ease, transform .2s ease, border-color .2s ease;
 }
-
 .atlas-home-hero:hover .atlas-home-cta {
   opacity: 1;
   border-color: rgba(196,146,72,.88);
   transform: translateX(-50%) translateY(-2px);
 }
-
 .atlas-home.is-opening .atlas-home-hero {
   transform: scale(1.025);
   opacity: 0;
   filter: brightness(.82);
 }
-
 @media (max-width: 760px) {
-  .atlas-home {
-    padding: 10px;
-  }
+  .atlas-home { padding: 10px; }
   .atlas-home-hero {
     width: 98vw;
     max-height: 94vh;
   }
-  .atlas-home-art {
-    max-height: 90vh;
-  }
+  .atlas-home-art { max-height: 90vh; }
   .atlas-home-cta {
     bottom: 5%;
     min-width: 116px;
@@ -1654,7 +1121,6 @@ input[type="search"] {
     font-size: .65rem;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .atlas-home-hero,
   .atlas-home.is-opening .atlas-home-hero {
