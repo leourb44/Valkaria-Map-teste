@@ -69,6 +69,11 @@
   const statusFilters = document.getElementById('statusFilters');
   const canonFilters = document.getElementById('canonFilters');
   const relevanceFilters = document.getElementById('relevanceFilters');
+  const tierFilters = document.getElementById('tierFilters');
+  const tierAllBtn = document.getElementById('tierAllBtn');
+  const tierMainBtn = document.getElementById('tierMainBtn');
+  const territoryBoundaryMode = document.getElementById('territoryBoundaryMode');
+  const territoryLabelsToggle = document.getElementById('territoryLabelsToggle');
   const homeBtn = document.getElementById('homeBtn');
   const coordsBtn = document.getElementById('coordsBtn');
   const gmBtn = document.getElementById('gmBtn');
@@ -99,6 +104,15 @@
   const enabledCategories = new Set(Object.keys(categoryDefs));
   const enabledCanons = new Set(Object.keys(canonDefs));
   const enabledRelevance = new Set(Object.keys(relevanceDefs));
+  const tierDefs = {
+    monumental: 'Monumentais',
+    relevant: 'Relevantes',
+    local: 'Locais',
+    micro: 'Micro'
+  };
+  const enabledTiers = new Set(Object.keys(tierDefs));
+  let territoryBoundaryVisibility = territoryBoundaryMode?.value || 'hover';
+  let territoryLabelsVisible = territoryLabelsToggle?.checked !== false;
 
   let editingFeature = null;
   let previewLayer = null;
@@ -132,6 +146,7 @@
   function passesFunctionalFilters(feature) {
     if (feature.statusCanonico && !enabledCanons.has(feature.statusCanonico)) return false;
     if (feature.relevancia && !enabledRelevance.has(feature.relevancia)) return false;
+    if (feature.geometria === 'point' && !enabledTiers.has(markerTier(feature))) return false;
     const cats = featureCategories(feature);
     if (cats.length && !cats.some(cat => enabledCategories.has(cat))) return false;
     return true;
@@ -473,13 +488,14 @@
 
     if (feature.camada === 'territorios') {
       const tone = territoryTone(feature);
+      const visible = territoryBoundaryVisibility === 'always';
       return {
         ...style,
         color: '#544637',
         fillColor: tone,
         weight: feature.tipo === 'regiao_urbana' ? 1.85 : 1.45,
-        opacity: 0.46,
-        fillOpacity: 0.018,
+        opacity: visible ? 0.46 : 0,
+        fillOpacity: visible ? 0.018 : 0,
         dashArray: undefined,
         lineJoin: 'round'
       };
@@ -580,8 +596,9 @@
     if (feature.camada === 'territorios' && layer.setStyle) {
       layer.on('mouseover', () => {
         if (selectedFeature?.id === feature.id) return;
+        if (territoryBoundaryVisibility === 'hidden') return;
         const base = styleFor(feature);
-        layer.setStyle({ ...base, color: territoryTone(feature), opacity: 0.72, fillOpacity: 0.075, weight: (base.weight || 1.5) + 0.45 });
+        layer.setStyle({ ...base, color: territoryTone(feature), opacity: 0.72, fillOpacity: 0.075, weight: Math.max(base.weight || 1.5, 1.8) + 0.45 });
       });
       layer.on('mouseout', () => {
         if (selectedFeature?.id === feature.id) return;
@@ -671,7 +688,7 @@
   function makePolygon(feature) {
     const points = (feature.points || []).map(([x, y]) => xy(x, y));
     const layer = bindCommon(L.polygon(points, styleFor(feature)), feature);
-    if (feature.camada === 'territorios' || visualRelevance(feature) === 'metropolitana') {
+    if ((feature.camada === 'territorios' && territoryLabelsVisible) || visualRelevance(feature) === 'metropolitana') {
       layer.unbindTooltip();
       const cityClass = feature.camada === 'territorios'
         ? (cityTerritoryLabelIds.has(feature.id) ? ' city-major' : ' city-secondary')
@@ -750,6 +767,53 @@
 
     label.append(checkbox, text);
     layerToggles.appendChild(label);
+  });
+
+  function syncTierControls() {
+    document.querySelectorAll('[data-tier]').forEach(input => {
+      input.checked = enabledTiers.has(input.dataset.tier);
+    });
+  }
+
+  Object.entries(tierDefs).forEach(([key, labelText]) => {
+    const label = document.createElement('label');
+    label.className = 'status-filter tier-filter';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.dataset.tier = key;
+    checkbox.checked = enabledTiers.has(key);
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) enabledTiers.add(key); else enabledTiers.delete(key);
+      renderFeatures(); syncGroupsToMap();
+    });
+    const text = document.createElement('span');
+    text.textContent = labelText;
+    label.append(checkbox, text);
+    tierFilters?.appendChild(label);
+  });
+
+  tierAllBtn?.addEventListener('click', () => {
+    Object.keys(tierDefs).forEach(key => enabledTiers.add(key));
+    syncTierControls();
+    renderFeatures(); syncGroupsToMap();
+  });
+
+  tierMainBtn?.addEventListener('click', () => {
+    enabledTiers.clear();
+    enabledTiers.add('monumental');
+    enabledTiers.add('relevant');
+    syncTierControls();
+    renderFeatures(); syncGroupsToMap();
+  });
+
+  territoryBoundaryMode?.addEventListener('change', () => {
+    territoryBoundaryVisibility = territoryBoundaryMode.value;
+    renderFeatures(); syncGroupsToMap();
+  });
+
+  territoryLabelsToggle?.addEventListener('change', () => {
+    territoryLabelsVisible = territoryLabelsToggle.checked;
+    renderFeatures(); syncGroupsToMap();
   });
 
   Object.entries(categoryDefs).forEach(([key, labelText]) => {
@@ -1357,6 +1421,9 @@
     get selectedFeature() { return selectedFeature; },
     get selectedLayer() { return selectedLeafletLayer; },
     get gmMode() { return gmMode; },
+    get enabledTiers() { return new Set(enabledTiers); },
+    get territoryBoundaryVisibility() { return territoryBoundaryVisibility; },
+    get territoryLabelsVisible() { return territoryLabelsVisible; },
     selectFeature, clearSelection, renderFeatures, syncGroupsToMap, featureHtml, styleFor,
     zoomBand, markerGlyph, markerFamily, markerTier, markerIconSvg, primaryCategory, canonLabel, statusLabel
   };
